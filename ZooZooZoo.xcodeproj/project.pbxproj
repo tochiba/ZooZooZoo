@@ -20,6 +20,7 @@
 		8F5517A91CA6DE4B00492953 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A41CA6DE3D00492953 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F5517AB1CA6DE5000492953 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A51CA6DE3D00492953 /* Alamofire.framework */; };
 		8F5517AC1CA6DE5000492953 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A51CA6DE3D00492953 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517AE1CA6E0AC00492953 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		8F5517981CA66F7300492953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F5517A41CA6DE3D00492953 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8F5517A51CA6DE3D00492953 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8F5517AE1CA6E0AC00492953 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Manager/APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		8F5517751CA66F7200492953 /* ZooZooZoo */ = {
 			isa = PBXGroup;
 			children = (
+				8F5517AD1CA6E07700492953 /* Manager */,
 				8F5517761CA66F7200492953 /* AppDelegate.swift */,
 				8F5517781CA66F7200492953 /* ViewController.swift */,
 				8F55177A1CA66F7200492953 /* Main.storyboard */,
@@ -152,6 +155,14 @@
 				8F5517981CA66F7300492953 /* Info.plist */,
 			);
 			path = ZooZooZooUITests;
+			sourceTree = "<group>";
+		};
+		8F5517AD1CA6E07700492953 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8F5517AE1CA6E0AC00492953 /* APIManager.swift */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */,
 				8F5517791CA66F7200492953 /* ViewController.swift in Sources */,
 				8F5517771CA66F7200492953 /* AppDelegate.swift in Sources */,
 			);
