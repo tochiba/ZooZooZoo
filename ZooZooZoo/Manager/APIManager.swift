@@ -27,7 +27,7 @@ class APIManager {
 }
 
 struct API {
-    static let Key = "XXXXXXXXXXXXXX"
-    static let YoutubeSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&order=viewCount&q="
+    static let Key = "&key=XXXXXXXXXXXXXX"
+    static let YoutubeSearchURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&order=date&q="
     static let YoutubeChanelURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&order=viewCount&channelId="
 }
