@@ -22,7 +22,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="FaB-6Z-ZKB"/>
                     <connections>
-                        <segue destination="Nzs-QP-aI0" kind="show" id="VaG-lC-hKN"/>
+                        <segue destination="Nzs-QP-aI0" kind="show" identifier="HomeToVideoView" id="VaG-lC-hKN"/>
+                        <segue destination="GOT-gd-YO9" kind="show" identifier="HomeToSettingView" id="DMQ-VQ-31g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,6 +160,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPu-ll-xle" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1758" y="519"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="Xs9-PL-1eu">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="GOT-gd-YO9" customClass="SettingViewController" customModule="ZooZooZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dh4-sD-G6s"/>
+                        <viewControllerLayoutGuide type="bottom" id="haO-hi-hO0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cP4-CO-cLT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PLt-bt-xQN">
+                                <rect key="frame" x="0.0" y="94" width="600" height="506"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="whh-Gk-U6h">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="whh-Gk-U6h" id="kDI-a2-aiL">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GOT-gd-YO9" id="V3y-n7-AGA"/>
+                                    <outlet property="delegate" destination="GOT-gd-YO9" id="75R-rz-Fd3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PLt-bt-xQN" secondAttribute="trailing" id="6Ad-33-3gl"/>
+                            <constraint firstAttribute="bottom" secondItem="PLt-bt-xQN" secondAttribute="bottom" id="OWI-3G-pwp"/>
+                            <constraint firstItem="PLt-bt-xQN" firstAttribute="top" secondItem="Dh4-sD-G6s" secondAttribute="bottom" constant="30" id="reg-Do-hl6"/>
+                            <constraint firstItem="PLt-bt-xQN" firstAttribute="leading" secondItem="cP4-CO-cLT" secondAttribute="leading" id="sCE-DS-zSL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="PLt-bt-xQN" id="Is0-4r-SAr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOQ-hm-Cxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="1306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fpo-5x-PSV">
