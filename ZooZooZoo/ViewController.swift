@@ -22,19 +22,13 @@ struct VideoCategory {
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    var controllers: [UIViewController]?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        setupView()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if self.controllers == nil {
+            setupView()
+        }
     }
 }
 
@@ -47,9 +41,12 @@ extension ViewController {
             tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
         }
         
-        //let nc = UINavigationController()
+        tc.tabItems.append((SettingViewController.getInstance(), "設定"))
+
+        self.controllers = [tc]
         let nc = self.navigationController!
         nc.viewControllers = [tc]
+        
         
         var option = TabPageOption()
         option.currentColor = UIColor(red: 246/255, green: 175/255, blue: 32/255, alpha: 1.0)
