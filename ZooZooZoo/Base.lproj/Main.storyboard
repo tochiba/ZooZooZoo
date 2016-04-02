@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -61,14 +62,58 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="201" height="198"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mek-Pc-m06">
+                                                    <rect key="frame" x="0.0" y="0.0" width="201" height="198"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.28966955239999997" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Stock" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9H-DW-V0D">
+                                                    <rect key="frame" x="4" y="174" width="193" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="II7-7g-OuD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.51442405840337724" blue="0.73302497706278635" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="モモンガ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0o-9f-p5X">
+                                                    <rect key="frame" x="12" y="112" width="177" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="xTc-5G-tOa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/04/01/00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6k-RC-Z1m">
+                                                    <rect key="frame" x="4" y="2" width="193" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="wVP-Ri-E0s"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.83984375" green="0.83984375" blue="0.83984375" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="I9H-DW-V0D" firstAttribute="leading" secondItem="eMw-CR-Y7b" secondAttribute="leading" constant="4" id="9Tk-Fw-7AN"/>
+                                            <constraint firstAttribute="trailing" secondItem="g6k-RC-Z1m" secondAttribute="trailing" constant="4" id="KS9-gk-Rus"/>
+                                            <constraint firstItem="Mek-Pc-m06" firstAttribute="top" secondItem="eMw-CR-Y7b" secondAttribute="top" id="QEN-TZ-ALm"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mek-Pc-m06" secondAttribute="trailing" id="RFc-Nm-QDf"/>
+                                            <constraint firstItem="Mek-Pc-m06" firstAttribute="leading" secondItem="eMw-CR-Y7b" secondAttribute="leading" id="SCn-Ri-ceS"/>
+                                            <constraint firstItem="I9H-DW-V0D" firstAttribute="top" secondItem="j0o-9f-p5X" secondAttribute="bottom" constant="2" id="Tm7-0U-2LA"/>
+                                            <constraint firstAttribute="trailing" secondItem="I9H-DW-V0D" secondAttribute="trailing" constant="4" id="b6F-Bd-kHe"/>
                                             <constraint firstItem="2gd-2x-I6A" firstAttribute="leading" secondItem="eMw-CR-Y7b" secondAttribute="leading" id="daW-0y-YYs"/>
                                             <constraint firstAttribute="bottom" secondItem="2gd-2x-I6A" secondAttribute="bottom" id="e4c-PA-odV"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="j0o-9f-p5X" secondAttribute="trailing" constant="4" id="g2J-jx-Kwj"/>
                                             <constraint firstItem="2gd-2x-I6A" firstAttribute="top" secondItem="eMw-CR-Y7b" secondAttribute="top" id="gVT-Yv-pa3"/>
+                                            <constraint firstItem="j0o-9f-p5X" firstAttribute="leading" secondItem="eMw-CR-Y7b" secondAttribute="leadingMargin" constant="4" id="lBj-6v-V82"/>
+                                            <constraint firstItem="g6k-RC-Z1m" firstAttribute="top" secondItem="eMw-CR-Y7b" secondAttribute="top" constant="2" id="q9v-sB-4jd"/>
+                                            <constraint firstAttribute="bottom" secondItem="I9H-DW-V0D" secondAttribute="bottom" constant="2" id="rHC-tW-o2b"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mek-Pc-m06" secondAttribute="bottom" id="rjL-B1-owz"/>
                                             <constraint firstAttribute="trailing" secondItem="2gd-2x-I6A" secondAttribute="trailing" id="sEz-zB-og7"/>
+                                            <constraint firstItem="g6k-RC-Z1m" firstAttribute="leading" secondItem="eMw-CR-Y7b" secondAttribute="leading" constant="4" id="vwX-BG-d5p"/>
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
