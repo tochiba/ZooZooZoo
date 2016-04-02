@@ -125,13 +125,22 @@ extension VideoListViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("VideoCell", forIndexPath: indexPath)
+        let video = self.videoList[indexPath.row]
         if let imageView = cell.viewWithTag(1) as? UIImageView {
             imageView.image = nil
-            if let url = NSURL(string: self.videoList[indexPath.row].thumbnailUrl) {
+            if let url = NSURL(string: video.thumbnailUrl) {
                 imageView.sd_setImageWithURL(url)
             }
         }
-        
+        if let timeLabel = cell.viewWithTag(2) as? UILabel {
+            timeLabel.text = video.date
+        }
+        if let titleLabel = cell.viewWithTag(3) as? UILabel {
+            titleLabel.text = video.title
+        }
+        if let likeLabel = cell.viewWithTag(4) as? UILabel {
+            likeLabel.text = "100♡"
+        }
         return cell
     }
 }
