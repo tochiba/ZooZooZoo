@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import NCMB
 
 protocol SearchAPIManagerDelegate: class {
     func didFinishLoad()
@@ -113,5 +114,5 @@ struct APIPARAM {
 }
 
 struct APITOKEN {
-    static let Token = "XXXXX"
+    static let Token = "AIzaSyAzV0FPnay-nfpdUc8NozA8kfPOHl9LP-Y"
 }
