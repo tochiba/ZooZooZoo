@@ -15,10 +15,12 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var cellSize: CGSize = CGSizeZero
-    var videoList: [AnimalVideo] = []
-    var isLoading: Bool = false
+    private var cellSize: CGSize = CGSizeZero
+    private var videoList: [AnimalVideo] = []
+    private var isLoading: Bool = false
+    
     var queryString: String = ""
+    var isFavorite: Bool = false
     
     class func getInstance(query: String, color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -26,6 +28,18 @@ class VideoListViewController: UIViewController {
             vc.queryString = query
             vc.view.backgroundColor = color
             vc.collectionView.backgroundColor = color
+            return vc
+        }
+        
+        return self.init()
+    }
+    
+    class func getFavoriteInstance(color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewControllerWithIdentifier("VideoListViewController") as? VideoListViewController {
+            vc.view.backgroundColor = color
+            vc.collectionView.backgroundColor = color
+            vc.isFavorite = true
             return vc
         }
         
@@ -48,12 +62,7 @@ class VideoListViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if Config.isDevMode() {
-            NIFTYManager.sharedInstance.search(self.queryString, aDelegate: self)
-        }
-        else {
-            APIManager.sharedInstance.search(self.queryString, aDelegate: self)
-        }
+        setData()
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -72,6 +81,34 @@ class VideoListViewController: UIViewController {
 }
 
 extension VideoListViewController {
+    private func setData() {
+        if isFavorite {
+            // TODO: お気に入り読み込み
+            return
+        }
+        
+        if Config.isDevMode() {
+            NIFTYManager.sharedInstance.search(self.queryString, aDelegate: self)
+        }
+        else {
+            APIManager.sharedInstance.search(self.queryString, aDelegate: self)
+        }
+    }
+    
+    private func loadData() {
+        if isFavorite {
+            // TODO: お気に入り読み込み
+            return
+        }
+        
+        if Config.isDevMode() {
+            self.videoList = NIFTYManager.sharedInstance.getAnimalVideos(self.queryString)
+        }
+        else {
+            self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
+        }
+    }
+    
     private func setupColloectionView() {
         if let nvc = self.parentViewController as? UINavigationController {
             for vc in nvc.viewControllers {
@@ -100,12 +137,7 @@ extension VideoListViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.isLoading = true
             dispatch_async(dispatch_get_main_queue(), {
-                if Config.isDevMode() {
-                    self.videoList = NIFTYManager.sharedInstance.getAnimalVideos(self.queryString)
-                }
-                else {
-                    self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
-                }
+                self.loadData()
                 self.indicator.startAnimating()
                 self.indicator.hidden = true
                 self.collectionView.reloadData()

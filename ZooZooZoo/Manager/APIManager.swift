@@ -58,7 +58,10 @@ class APIManager {
                     a.title = i["snippet"]["title"].stringValue
                     a.descri = i["snippet"]["description"].stringValue
                     a.thumbnailUrl = i["snippet"]["thumbnails"]["high"]["url"].stringValue
-                    videos.append(a)
+                    a.likeCount = 1
+                    if a.id != "" {
+                        videos.append(a)
+                    }
                 }
                 
                 if let ntoken = json["nextPageToken"].string {
@@ -90,7 +93,10 @@ class APIManager {
                     a.title = i["snippet"]["title"].stringValue
                     a.descri = i["snippet"]["description"].stringValue
                     a.thumbnailUrl = i["snippet"]["thumbnails"]["high"]["url"].stringValue
-                    aArray.append(a)
+                    a.likeCount = 1
+                    if a.id != "" {
+                        aArray.append(a)
+                    }
                 }
                 
                 if let ntoken = json["nextPageToken"].string {

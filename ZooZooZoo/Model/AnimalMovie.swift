@@ -56,6 +56,12 @@ class AnimalVideo: NCMBObject, NSCoding {
             self.setObject(videoUrl, forKey: AnimalVideoKey.videoUrlKey)
         }
     }
+    
+    var likeCount: Int          = 0 {
+        didSet {
+            self.setObject(likeCount, forKey: AnimalVideoKey.likeCountKey)
+        }
+    }
 
     
     override init() {
@@ -93,6 +99,11 @@ class AnimalVideo: NCMBObject, NSCoding {
             self.videoUrl = v
             self.setObject(v, forKey: AnimalVideoKey.videoUrlKey)
         }
+        if let l = aDecoder.decodeObjectForKey(AnimalVideoKey.likeCountKey) as? Int {
+            self.likeCount = l
+            self.setObject(l, forKey: AnimalVideoKey.likeCountKey)
+        }
+        
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -103,6 +114,7 @@ class AnimalVideo: NCMBObject, NSCoding {
         aCoder.encodeObject(descri, forKey: AnimalVideoKey.descriKey)
         aCoder.encodeObject(thumbnailUrl, forKey: AnimalVideoKey.thumbnailUrlKey)
         aCoder.encodeObject(videoUrl, forKey: AnimalVideoKey.videoUrlKey)
+        aCoder.encodeObject(likeCount, forKey: AnimalVideoKey.likeCountKey)
     }
 }
 
@@ -114,36 +126,5 @@ struct AnimalVideoKey {
     static let descriKey: String          = "descri"
     static let thumbnailUrlKey: String    = "thumbnailUrl"
     static let videoUrlKey: String        = "videoUrl"
-}
-
-class Like: NCMBObject {
-    class func className() -> String {
-        return "Like"
-    }
-    
-    var id: String              = "" {
-        didSet {
-            self.setObject(id, forKey: LikeKey.idKey)
-        }
-    }
-
-    var likeCount: Int          = 0 {
-        didSet {
-            self.setObject(likeCount, forKey: LikeKey.likeCountKey)
-        }
-    }
-    
-    override init() {
-        super.init(className: Like.className())
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(className: Like.className())
-    }
-}
-
-
-struct LikeKey {
-    static let idKey: String            = "id"
-    static let likeCountKey: String     = "likeCount"
+    static let likeCountKey: String       = "likeCount"
 }

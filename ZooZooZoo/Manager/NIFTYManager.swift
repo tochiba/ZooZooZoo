@@ -19,6 +19,9 @@ class NIFTYManager {
     weak var delegate: NIFTYManagerDelegate?
     
     func deliverThisVideo(video: AnimalVideo) {
+        if video.id.utf16.count == 0 {
+            return
+        }
         if !isDelivered(video) {
             backgroundSaveObject(video)
         }
@@ -93,12 +96,17 @@ class NIFTYManager {
                                 an.date = d
                                 an.title = t
                                 an.thumbnailUrl = th
-                                if let de = _a.objectForKey(AnimalVideoKey.videoUrlKey) as? String {
+                                if let de = _a.objectForKey(AnimalVideoKey.descriKey) as? String {
                                     an.descri = de
                                 }
                                 if let v = _a.objectForKey(AnimalVideoKey.videoUrlKey) as? String {
                                     an.videoUrl = v
                                 }
+                                an.likeCount = 0
+                                if let l = _a.objectForKey(AnimalVideoKey.likeCountKey) as? Int {
+                                    an.likeCount = l
+                                }
+                                
                                 aArray.append(an)
                         }
                     }
@@ -110,6 +118,39 @@ class NIFTYManager {
     }
     
 
-    // TODO: Like
+    // TODO: Likeがうまくインクリメントされん
+    /*
+    func incrementLike(video: AnimalVideo) {
+        // id から LikeObject 撮ってきてインクリメントしてSave
+        let q = NCMBQuery(className: AnimalVideo.className())
+        q.limit = 1
+        q.whereKey(AnimalVideoKey.idKey, equalTo: video.id)
+        q.findObjectsInBackgroundWithBlock({
+            (array, error) in
+            if error == nil {
+                for a in array {
+                    if let _a = a as? NCMBObject {
+                        if  let l = _a.objectForKey(AnimalVideoKey.likeCountKey) as? Int {
+                            var c = l
+                            self.setLike(video, count: c++)
+                        }
+                    }
+                }
+            }
+        })
+    }
+    
+    private func setLike(video: AnimalVideo, count: Int) {
+        video.setObject(count+2, forKey: AnimalVideoKey.likeCountKey)
+        if video.id.utf16.count == 0 {
+            return
+        }
+        video.saveInBackgroundWithBlock({ error in
+            if error != nil {
+                // Error
+            }
+        })
+    }
+    */
     // TODO: 時間順、新着順、人気順にソート
 }
