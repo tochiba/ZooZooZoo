@@ -25,6 +25,10 @@ extension SettingViewController {
 }
 
 extension SettingViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        Config.setDevMode(!Config.isDevMode())
+        self.tableView.reloadData()
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
@@ -34,12 +38,13 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SettingData.cellName, forIndexPath: indexPath)
-        cell.textLabel?.text = SettingData.titles[indexPath.row]
+        let str = Config.isDevMode() ? " OFF":" ON"
+        cell.textLabel?.text = SettingData.titles[indexPath.row] + str
         return cell
     }
 }
 
 struct SettingData {
-    static let titles: [String] = ["ライセンス"]
+    static let titles: [String] = ["入稿ツールモード"]
     static let cellName = "SettingCell"
 }

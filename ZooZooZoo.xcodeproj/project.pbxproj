@@ -24,6 +24,8 @@
 		8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517AE1CA6E0AC00492953 /* APIManager.swift */; };
 		8F5517FE1CAF69AA00492953 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517FD1CAF69AA00492953 /* SettingViewController.swift */; };
 		8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517FF1CB0270300492953 /* NIFTYManager.swift */; };
+		8F5518021CB0DAD900492953 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5518011CB0DAD900492953 /* Constants.swift */; };
+		8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C231CB0FD6A0066DD5C /* Config.swift */; };
 		DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BAB71CAB73190045E08A /* AnimalMovie.swift */; };
 		DB70BADA1CACBEC60045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
 		DB70BADB1CACBECB0045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
@@ -94,6 +96,8 @@
 		8F5517AE1CA6E0AC00492953 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = Manager/APIManager.swift; sourceTree = "<group>"; };
 		8F5517FD1CAF69AA00492953 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = ViewController/SettingViewController.swift; sourceTree = "<group>"; };
 		8F5517FF1CB0270300492953 /* NIFTYManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NIFTYManager.swift; path = Manager/NIFTYManager.swift; sourceTree = "<group>"; };
+		8F5518011CB0DAD900492953 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8FD73C231CB0FD6A0066DD5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DB70BAB71CAB73190045E08A /* AnimalMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalMovie.swift; path = Model/AnimalMovie.swift; sourceTree = "<group>"; };
 		DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TabPageViewController.framework; path = Carthage/Build/iOS/TabPageViewController.framework; sourceTree = "<group>"; };
 		DB70BADE1CACD6250045E08A /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoListViewController.swift; path = ViewController/VideoListViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				8F55177D1CA66F7200492953 /* Assets.xcassets */,
 				8F55177F1CA66F7200492953 /* LaunchScreen.storyboard */,
 				8F5517821CA66F7200492953 /* Info.plist */,
+				8F5518011CB0DAD900492953 /* Constants.swift */,
+				8FD73C231CB0FD6A0066DD5C /* Config.swift */,
 			);
 			path = ZooZooZoo;
 			sourceTree = "<group>";
@@ -426,11 +432,13 @@
 			files = (
 				8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */,
 				8F5517791CA66F7200492953 /* ViewController.swift in Sources */,
+				8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */,
 				DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */,
 				8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */,
 				DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */,
 				8F5517771CA66F7200492953 /* AppDelegate.swift in Sources */,
 				8F5517FE1CAF69AA00492953 /* SettingViewController.swift in Sources */,
+				8F5518021CB0DAD900492953 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
