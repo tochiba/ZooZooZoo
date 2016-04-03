@@ -41,6 +41,7 @@ extension ViewController {
             tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
         }
         
+        tc.tabItems.append((VideoListViewController.getFavoriteInstance(), "お気に入り"))
         tc.tabItems.append((SettingViewController.getInstance(), "設定"))
 
         self.controllers = [tc]
