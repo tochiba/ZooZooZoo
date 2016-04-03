@@ -48,7 +48,12 @@ class VideoListViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        APIManager.sharedInstance.search(self.queryString, aDelegate: self)
+        if Config.isDevMode() {
+            NIFTYManager.sharedInstance.search(self.queryString, aDelegate: self)
+        }
+        else {
+            APIManager.sharedInstance.search(self.queryString, aDelegate: self)
+        }
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -95,7 +100,12 @@ extension VideoListViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.isLoading = true
             dispatch_async(dispatch_get_main_queue(), {
-                self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
+                if Config.isDevMode() {
+                    self.videoList = NIFTYManager.sharedInstance.getAnimalVideos(self.queryString)
+                }
+                else {
+                    self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
+                }
                 self.indicator.startAnimating()
                 self.indicator.hidden = true
                 self.collectionView.reloadData()
@@ -149,6 +159,9 @@ extension VideoListViewController: UICollectionViewDelegate {
     // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let v = self.videoList[indexPath.row]
+        // TEST:
+        NIFTYManager.sharedInstance.deliverThisVideo(v)
+        
         playVideo(v.id)
     }
     
@@ -165,6 +178,12 @@ extension VideoListViewController: UICollectionViewDelegateFlowLayout {
 
 extension VideoListViewController: SearchAPIManagerDelegate {
     func didFinishLoad() {
+        reload()
+    }
+}
+
+extension VideoListViewController: NIFTYManagerDelegate {
+    func didLoad() {
         reload()
     }
 }
