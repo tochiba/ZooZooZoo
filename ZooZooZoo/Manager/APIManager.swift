@@ -38,7 +38,7 @@ class APIManager {
             return
         }
         
-        Alamofire.request(.GET, APIURL.YoutubeSearch + encodedString + APIPARAM.Token + APITOKEN.Token)
+        Alamofire.request(.GET, APIURL.YoutubeSearch + encodedString + APIPARAM.Token + APITOKEN.YoutubeToken)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -48,14 +48,15 @@ class APIManager {
                 guard let array = json["items"].array else {
                     return
                 }
-                
+
                 var videos: [AnimalVideo] = []
                 for i in array {
                     let a = AnimalVideo()
+                    a.animalName = encodedString
                     a.id = i["id"]["videoId"].stringValue
                     a.date = i["snippet"]["publishedAt"].stringValue
                     a.title = i["snippet"]["title"].stringValue
-                    a.descriptioin = i["snippet"]["description"].stringValue
+                    a.descri = i["snippet"]["description"].stringValue
                     a.thumbnailUrl = i["snippet"]["thumbnails"]["high"]["url"].stringValue
                     videos.append(a)
                 }
@@ -70,7 +71,7 @@ class APIManager {
     }
     
     func nextSearch(query: String, nextToken: String, var aArray: [AnimalVideo]) {
-        Alamofire.request(.GET, APIURL.YoutubeNextSearch + query + APIPARAM.Token + APITOKEN.Token + APIPARAM.NextPageToken + nextToken)
+        Alamofire.request(.GET, APIURL.YoutubeNextSearch + query + APIPARAM.Token + APITOKEN.YoutubeToken + APIPARAM.NextPageToken + nextToken)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -83,10 +84,11 @@ class APIManager {
                 
                 for i in array {
                     let a = AnimalVideo()
+                    a.animalName = query
                     a.id = i["id"]["videoId"].stringValue
                     a.date = i["snippet"]["publishedAt"].stringValue
                     a.title = i["snippet"]["title"].stringValue
-                    a.descriptioin = i["snippet"]["description"].stringValue
+                    a.descri = i["snippet"]["description"].stringValue
                     a.thumbnailUrl = i["snippet"]["thumbnails"]["high"]["url"].stringValue
                     aArray.append(a)
                 }
@@ -111,8 +113,4 @@ struct APIURL {
 struct APIPARAM {
     static let Token            = "&key="
     static let NextPageToken    = "&pageToken="
-}
-
-struct APITOKEN {
-    static let Token = "AIzaSyAzV0FPnay-nfpdUc8NozA8kfPOHl9LP-Y"
 }
