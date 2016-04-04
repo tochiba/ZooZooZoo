@@ -118,8 +118,7 @@ class NIFTYManager {
     }
     
 
-    // TODO: Likeがうまくインクリメントされん
-    /*
+    // Like
     func incrementLike(video: AnimalVideo) {
         // id から LikeObject 撮ってきてインクリメントしてSave
         let q = NCMBQuery(className: AnimalVideo.className())
@@ -130,9 +129,12 @@ class NIFTYManager {
             if error == nil {
                 for a in array {
                     if let _a = a as? NCMBObject {
-                        if  let l = _a.objectForKey(AnimalVideoKey.likeCountKey) as? Int {
-                            var c = l
-                            self.setLike(video, count: c++)
+                        if  let l = _a.objectForKey(AnimalVideoKey.likeCountKey) as? Int,
+                            let id = _a.objectForKey(AnimalVideoKey.idKey) as? String {
+                            if id.utf16.count == 0 {
+                                return
+                            }
+                            self.setLike(_a, count: l)
                         }
                     }
                 }
@@ -140,17 +142,14 @@ class NIFTYManager {
         })
     }
     
-    private func setLike(video: AnimalVideo, count: Int) {
-        video.setObject(count+2, forKey: AnimalVideoKey.likeCountKey)
-        if video.id.utf16.count == 0 {
-            return
-        }
+    private func setLike(video: NCMBObject, count: Int) {
+        video.setObject(count+1, forKey: AnimalVideoKey.likeCountKey)
         video.saveInBackgroundWithBlock({ error in
             if error != nil {
                 // Error
             }
         })
     }
-    */
+    
     // TODO: 時間順、新着順、人気順にソート
 }
