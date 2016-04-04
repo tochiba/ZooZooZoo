@@ -26,7 +26,7 @@ extension SettingViewController {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Config.setDevMode(!Config.isDevMode())
+        Config.setDevMode(!Config.isNotDevMode())
         self.tableView.reloadData()
     }
 }
@@ -38,7 +38,7 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SettingData.cellName, forIndexPath: indexPath)
-        let str = Config.isDevMode() ? " OFF":" ON"
+        let str = Config.isNotDevMode() ? " OFF":" ON"
         cell.textLabel?.text = SettingData.titles[indexPath.row] + str
         return cell
     }
