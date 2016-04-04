@@ -64,7 +64,7 @@ class NIFTYManager {
             return []
         }
         
-        return array
+        return array.reverse()
     }
 
     func search(query: String, aDelegate: NIFTYManagerDelegate?) {
@@ -76,6 +76,7 @@ class NIFTYManager {
         
         let q = NCMBQuery(className: AnimalVideo.className())
         q.limit = 200
+        // TODO: 新着
         q.whereKey(AnimalVideoKey.animalNameKey, equalTo: encodedString)
         q.findObjectsInBackgroundWithBlock({
             (array, error) in
@@ -116,6 +117,55 @@ class NIFTYManager {
             self.delegate?.didLoad()
         })
     }
+    
+    func search(isNew: Bool=false, aDelegate: NIFTYManagerDelegate?) {
+        self.delegate = aDelegate
+        
+        let q = NCMBQuery(className: AnimalVideo.className())
+        q.limit = 200
+        // TODO: like順
+        // TODO: 新着
+        q.findObjectsInBackgroundWithBlock({
+            (array, error) in
+            if error == nil {
+                var aArray: [AnimalVideo] = []
+                for a in array {
+                    
+                    if let _a = a as? NCMBObject {
+                        if  let i = _a.objectForKey(AnimalVideoKey.idKey) as? String,
+                            let ana = _a.objectForKey(AnimalVideoKey.animalNameKey) as? String,
+                            let d = _a.objectForKey(AnimalVideoKey.dateKey) as? String,
+                            let t = _a.objectForKey(AnimalVideoKey.titleKey) as? String,
+                            let th = _a.objectForKey(AnimalVideoKey.thumbnailUrlKey) as? String {
+                                
+                                let an = AnimalVideo()
+                                an.id = i
+                                an.animalName = ana
+                                an.date = d
+                                an.title = t
+                                an.thumbnailUrl = th
+                                if let de = _a.objectForKey(AnimalVideoKey.descriKey) as? String {
+                                    an.descri = de
+                                }
+                                if let v = _a.objectForKey(AnimalVideoKey.videoUrlKey) as? String {
+                                    an.videoUrl = v
+                                }
+                                an.likeCount = 0
+                                if let l = _a.objectForKey(AnimalVideoKey.likeCountKey) as? Int {
+                                    an.likeCount = l
+                                }
+                                
+                                aArray.append(an)
+                        }
+                    }
+                }
+                let str = isNew ? "New":"Popular"
+                self.animalVideoDic[str] = aArray
+            }
+            self.delegate?.didLoad()
+        })
+    }
+
     
 
     // Like

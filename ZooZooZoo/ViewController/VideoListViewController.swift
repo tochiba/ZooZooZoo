@@ -20,7 +20,14 @@ class VideoListViewController: UIViewController {
     private var isLoading: Bool = false
     
     var queryString: String = ""
-    var isFavorite: Bool = false
+
+    enum Mode {
+        case Category
+        case Favorite
+        case New
+        case Popular
+    }
+    var mode: Mode = .Category
     
     class func getInstance(query: String, color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -34,12 +41,12 @@ class VideoListViewController: UIViewController {
         return self.init()
     }
     
-    class func getFavoriteInstance(color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
+    class func getInstanceWithMode(mode: Mode, color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc = storyboard.instantiateViewControllerWithIdentifier("VideoListViewController") as? VideoListViewController {
             vc.view.backgroundColor = color
             vc.collectionView.backgroundColor = color
-            vc.isFavorite = true
+            vc.mode = mode
             return vc
         }
         
@@ -57,7 +64,6 @@ class VideoListViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         setupColloectionView()
-        //self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -82,30 +88,62 @@ class VideoListViewController: UIViewController {
 
 extension VideoListViewController {
     private func setData() {
-        if isFavorite {
+        switch self.mode {
+        case .Category:
+            if Config.isNotDevMode() {
+                NIFTYManager.sharedInstance.search(self.queryString, aDelegate: self)
+            }
+            else {
+                APIManager.sharedInstance.search(self.queryString, aDelegate: self)
+            }
+            return
+        case .Favorite:
             // TODO: お気に入り読み込み
             return
-        }
-        
-        if Config.isDevMode() {
-            NIFTYManager.sharedInstance.search(self.queryString, aDelegate: self)
-        }
-        else {
-            APIManager.sharedInstance.search(self.queryString, aDelegate: self)
+        case .New:
+            if Config.isNotDevMode() {
+                NIFTYManager.sharedInstance.search(true, aDelegate: self)
+            }
+            else {
+                self.videoList = []
+                self.collectionView.reloadData()
+            }
+            return
+        case .Popular:
+            if Config.isNotDevMode() {
+                NIFTYManager.sharedInstance.search(false, aDelegate: self)
+            }
+            else {
+                self.videoList = []
+                self.collectionView.reloadData()
+            }
+            return
         }
     }
     
     private func loadData() {
-        if isFavorite {
+        switch self.mode {
+        case .Category:
+            if Config.isNotDevMode() {
+                self.videoList = NIFTYManager.sharedInstance.getAnimalVideos(self.queryString)
+            }
+            else {
+                self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
+            }
+            return
+        case .Favorite:
             // TODO: お気に入り読み込み
             return
-        }
-        
-        if Config.isDevMode() {
-            self.videoList = NIFTYManager.sharedInstance.getAnimalVideos(self.queryString)
-        }
-        else {
-            self.videoList = APIManager.sharedInstance.getAnimalVideos(self.queryString)
+        case .New:
+            if Config.isNotDevMode() {
+                self.videoList = NIFTYManager.sharedInstance.getAnimalVideos("New")
+            }
+            return
+        case .Popular:
+            if Config.isNotDevMode() {
+                self.videoList = NIFTYManager.sharedInstance.getAnimalVideos("Popular")
+            }
+            return
         }
     }
     
@@ -191,10 +229,14 @@ extension VideoListViewController: UICollectionViewDelegate {
     // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let v = self.videoList[indexPath.row]
-        // TEST:
-        NIFTYManager.sharedInstance.deliverThisVideo(v)
-        
         playVideo(v.id)
+
+        if Config.isNotDevMode() {
+            NIFTYManager.sharedInstance.incrementLike(v)
+        }
+        else {
+            NIFTYManager.sharedInstance.deliverThisVideo(v)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -37,11 +37,14 @@ extension ViewController {
         let tc = TabPageViewController.create()
         tc.isInfinity = true
         
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Popular), "人気"))
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New), "新着"))
+        
         for tuple in VideoCategory.category.enumerate() {
             tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
         }
         
-        tc.tabItems.append((VideoListViewController.getFavoriteInstance(), "お気に入り"))
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Favorite), "お気に入り"))
         tc.tabItems.append((SettingViewController.getInstance(), "設定"))
 
         self.controllers = [tc]
