@@ -64,7 +64,7 @@ class NIFTYManager {
             return []
         }
         
-        return array
+        return array.reverse()
     }
 
     func search(query: String, aDelegate: NIFTYManagerDelegate?) {
