@@ -13,7 +13,7 @@ class Config {
         static let devModeKey = "DevMode"
     }
     
-    class func isDevMode() -> Bool {
+    class func isNotDevMode() -> Bool {
         let d = NSUserDefaults.standardUserDefaults()
         return d.boolForKey(Key.devModeKey)
     }
