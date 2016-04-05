@@ -64,7 +64,7 @@ class NIFTYManager {
             return []
         }
         
-        return array.reverse()
+        return array
     }
 
     func search(query: String, aDelegate: NIFTYManagerDelegate?) {
@@ -76,7 +76,7 @@ class NIFTYManager {
         
         let q = NCMBQuery(className: AnimalVideo.className())
         q.limit = 200
-        // TODO: 新着
+        q.orderByDescending("createDate")
         q.whereKey(AnimalVideoKey.animalNameKey, equalTo: encodedString)
         q.findObjectsInBackgroundWithBlock({
             (array, error) in
@@ -122,9 +122,13 @@ class NIFTYManager {
         self.delegate = aDelegate
         
         let q = NCMBQuery(className: AnimalVideo.className())
-        q.limit = 200
-        // TODO: like順
-        // TODO: 新着
+        q.limit = 50
+        if isNew {
+            q.orderByDescending("createDate")
+        }
+        else {
+            q.orderByDescending("likeCount")
+        }
         q.findObjectsInBackgroundWithBlock({
             (array, error) in
             if error == nil {
