@@ -32,7 +32,6 @@ class NIFTYManager {
         let items = getAnimalVideos(video.animalName, isEncoded: true)
 
         if let _ = items.indexOf({$0.id == video.id}) {
-
             return true
         }
         
@@ -64,7 +63,7 @@ class NIFTYManager {
             return []
         }
         
-        return array.reverse()
+        return array
     }
 
     func search(query: String, aDelegate: NIFTYManagerDelegate?) {
@@ -76,7 +75,8 @@ class NIFTYManager {
         
         let q = NCMBQuery(className: AnimalVideo.className())
         q.limit = 200
-        // TODO: 新着
+        // 新着順
+        q.orderByDescending("createDate")
         q.whereKey(AnimalVideoKey.animalNameKey, equalTo: encodedString)
         q.findObjectsInBackgroundWithBlock({
             (array, error) in
@@ -122,9 +122,14 @@ class NIFTYManager {
         self.delegate = aDelegate
         
         let q = NCMBQuery(className: AnimalVideo.className())
-        q.limit = 200
-        // TODO: like順
-        // TODO: 新着
+        q.limit = 50
+        if isNew {
+            q.orderByDescending("createDate")
+        }
+        else {
+            // Likeの多さ順
+            q.orderByDescending("likeCount")
+        }
         q.findObjectsInBackgroundWithBlock({
             (array, error) in
             if error == nil {
@@ -166,8 +171,6 @@ class NIFTYManager {
         })
     }
 
-    
-
     // Like
     func incrementLike(video: AnimalVideo) {
         // id から LikeObject 撮ってきてインクリメントしてSave
@@ -200,6 +203,4 @@ class NIFTYManager {
             }
         })
     }
-    
-    // TODO: 時間順、新着順、人気順にソート
 }
