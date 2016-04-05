@@ -10,7 +10,37 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: SettingTableView!
+}
+
+class SettingTableView: UITableView {
+    var timer: NSTimer = NSTimer()
+    var counter: Int = 0
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        if self.timer.valid {
+            self.counter++
+        }
+        else {
+            // Timer生成
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "resetTimer", userInfo: nil, repeats: false)
+        }
+        check()
+    }
+    
+    func resetTimer() {
+        self.counter = 0
+        self.timer.invalidate()
+    }
+    
+    private func check() {
+        if self.counter > 10 {
+            Config.setDevMode(!Config.isNotDevMode())
+            self.reloadData()
+            resetTimer()
+        }
+    }
 }
 
 extension SettingViewController {
@@ -26,8 +56,6 @@ extension SettingViewController {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Config.setDevMode(!Config.isNotDevMode())
-        self.tableView.reloadData()
     }
 }
 
@@ -38,8 +66,12 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SettingData.cellName, forIndexPath: indexPath)
-        let str = Config.isNotDevMode() ? " OFF":" ON"
-        cell.textLabel?.text = SettingData.titles[indexPath.row] + str
+        if Config.isNotDevMode() {
+            cell.textLabel?.text = SettingData.titles[indexPath.row] + "ON"
+        }
+        else {
+            cell.textLabel?.text = ""
+        }
         return cell
     }
 }
