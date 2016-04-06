@@ -68,13 +68,15 @@ class VideoListViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        
         setData()
+        setupCellSize()
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        setupCellSize()
-        self.collectionView.reloadData()
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,6 +85,10 @@ class VideoListViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func deviceOrientationDidChange(notification: NSNotification) {
+        setupCellSize()
     }
 }
 
@@ -165,6 +171,7 @@ extension VideoListViewController {
         let screenSizeWidth = UIScreen.mainScreen().bounds.size.width
         let size = (screenSizeWidth - CGFloat(space * spaceNum)) / CGFloat(cellNum)
         self.cellSize = CGSizeMake(size, size * 0.6)
+        self.collectionView.reloadData()
     }
     
     private func reload() {
