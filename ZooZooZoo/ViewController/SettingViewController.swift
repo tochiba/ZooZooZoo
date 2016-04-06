@@ -61,22 +61,48 @@ extension SettingViewController: UITableViewDelegate {
 
 extension SettingViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingData.titles.count
+        return SettingData(rawValue: section)!.numberOfRows
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(SettingData.cellName, forIndexPath: indexPath)
-        if Config.isNotDevMode() {
-            cell.textLabel?.text = SettingData.titles[indexPath.row] + "ON"
-        }
-        else {
-            cell.textLabel?.text = ""
-        }
+        cell.textLabel?.text = SettingData(rawValue: indexPath.row)?.title
         return cell
     }
 }
 
-struct SettingData {
-    static let titles: [String] = ["入稿ツールモード"]
+private enum SettingData: Int {
+    case Request
+    case Copyright
+    case DevMode
+    case NumberOfRows
+    
     static let cellName = "SettingCell"
+    
+    var numberOfRows: Int {
+        if Config.isNotDevMode() {
+            return NumberOfRows.rawValue-1
+        }
+        else {
+            return NumberOfRows.rawValue
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .Request:
+            return "要望" //NSLocalizedString("settings_row_version", comment: "")
+        case .Copyright:
+            return "ライセンス" //NSLocalizedString("settings_row_copyright", comment: "")
+        case .DevMode:
+            if Config.isNotDevMode() {
+                return ""
+            }
+            else {
+                return "入稿ツールモード ON"
+            }
+        case .NumberOfRows:
+            return ""
+        }
+    }
 }
