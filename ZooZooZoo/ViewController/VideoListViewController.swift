@@ -164,7 +164,7 @@ extension VideoListViewController {
         let cellNum: Int = 1 //セルの数
         let screenSizeWidth = UIScreen.mainScreen().bounds.size.width
         let size = (screenSizeWidth - CGFloat(space * spaceNum)) / CGFloat(cellNum)
-        self.cellSize = CGSizeMake(size, size * 0.5)
+        self.cellSize = CGSizeMake(size, size * 0.6)
     }
     
     private func reload() {
@@ -219,7 +219,7 @@ extension VideoListViewController: UICollectionViewDataSource {
             titleLabel.text = video.title
         }
         if let likeLabel = cell.viewWithTag(4) as? UILabel {
-            likeLabel.text = "100♡"
+            likeLabel.text = String(video.likeCount) + "Like♡"
         }
         return cell
     }
