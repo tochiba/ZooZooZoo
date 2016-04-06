@@ -28,9 +28,7 @@ class NIFTYManager {
     }
     
     private func isDelivered(video: AnimalVideo) -> Bool {
-        // TODO: 読み込まれてない場合があるのでその対応
         let items = getAnimalVideos(video.animalName, isEncoded: true)
-
         if let _ = items.indexOf({$0.id == video.id}) {
             return true
         }
