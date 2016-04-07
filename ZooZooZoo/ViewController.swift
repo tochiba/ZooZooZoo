@@ -10,7 +10,7 @@ import UIKit
 import TabPageViewController
 
 struct VideoCategory {
-    static let category: [String] = ["うさぎ", "ハムスター", "モモンガ", "ナマケモノ", "ペンギン"]
+    static let category: [String] = ["犬", "ネコ", "うさぎ", "ハムスター", "ハリネズミ", "フェレット", "ペンギン"]
     static let categoryColor: [UIColor] = [
         UIColor(red: 251/255, green: 252/255, blue: 149/255, alpha: 1.0),
         UIColor(red: 252/255, green: 150/255, blue: 149/255, alpha: 1.0),
@@ -54,7 +54,8 @@ extension ViewController {
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New), "新着"))
         
         for tuple in VideoCategory.category.enumerate() {
-            tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
+//            tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
+            tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 0.4)), tuple.element))
         }
         
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Favorite), "お気に入り"))
