@@ -36,6 +36,9 @@ extension ViewController {
     private func setupView() {
         let tc = TabPageViewController.create()
         tc.isInfinity = true
+        let image = UIImage(named: "nav_header_logo")
+        let imageView = UIImageView(image: image)
+        tc.navigationItem.titleView = imageView
         
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Popular), "人気"))
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New), "新着"))
