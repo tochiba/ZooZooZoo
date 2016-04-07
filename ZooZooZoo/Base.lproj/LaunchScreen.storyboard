@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +14,41 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="nav_header_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dbu-1D-rtH">
+                                <rect key="frame" x="126" y="320" width="123" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="0gk-6s-HnP"/>
+                                    <constraint firstAttribute="width" constant="123" id="YMq-rS-gVW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="splash_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-Km-wXY">
+                                <rect key="frame" x="137" y="221" width="100" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="0jz-EU-twY"/>
+                                    <constraint firstAttribute="width" constant="100" id="Ifa-7Q-kon"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dbu-1D-rtH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3ta-JQ-1hs"/>
+                            <constraint firstItem="dbu-1D-rtH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HVS-C5-unc"/>
+                            <constraint firstItem="dbu-1D-rtH" firstAttribute="top" secondItem="ggd-Km-wXY" secondAttribute="bottom" constant="8" id="gov-GM-fcs"/>
+                            <constraint firstItem="dbu-1D-rtH" firstAttribute="centerX" secondItem="ggd-Km-wXY" secondAttribute="centerX" id="l2q-5L-AfR"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-25" y="343"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nav_header_logo" width="123" height="27"/>
+        <image name="splash_icon" width="100" height="91"/>
+    </resources>
 </document>
