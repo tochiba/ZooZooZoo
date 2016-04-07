@@ -42,7 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension UIApplication {
+    static func isLandscape() -> Bool {
+        return UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation)
+    }
+    
+    static func isPortrait() -> Bool {
+        return UIInterfaceOrientationIsPortrait(UIApplication.sharedApplication().statusBarOrientation)
+    }
+    
+    static func isPhone() -> Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == .Phone
+    }
+    
+    static func isPad() -> Bool {
+        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+    }
 }
 
