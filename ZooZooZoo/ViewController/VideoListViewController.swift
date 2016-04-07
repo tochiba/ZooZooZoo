@@ -57,7 +57,6 @@ class VideoListViewController: UIViewController {
         super.viewDidLoad()
         self.indicator.hidden = false
         self.indicator.startAnimating()
-        setupCellSize()
         reload()
     }
     
@@ -65,13 +64,15 @@ class VideoListViewController: UIViewController {
         super.viewWillAppear(animated)
         setupColloectionView()
     }
+       
+    override func viewDidLayoutSubviews() {
+        setupCellSize()
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
-        
         setData()
-        setupCellSize()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -166,9 +167,31 @@ extension VideoListViewController {
     
     private func setupCellSize() {
         let space: Int = 1 //マージン
-        let spaceNum: Int = 0 //スペースの数
-        let cellNum: Int = 1 //セルの数
-        let screenSizeWidth = UIScreen.mainScreen().bounds.size.width
+        var spaceNum: Int = 0 //スペースの数
+        var cellNum: Int = 1 //セルの数
+        
+        if UIApplication.isLandscape() {
+            if UIApplication.isPad() {
+                spaceNum = 2
+                cellNum  = 3
+            }
+            else {
+                spaceNum = 1
+                cellNum  = 2
+            }
+        }
+        else {
+            if UIApplication.isPad() {
+                spaceNum = 1
+                cellNum  = 2
+            }
+            else {
+                spaceNum = 0
+                cellNum  = 1
+            }
+        }
+        
+        let screenSizeWidth = self.view.frame.size.width//UIScreen.mainScreen().bounds.size.width
         let size = (screenSizeWidth - CGFloat(space * spaceNum)) / CGFloat(cellNum)
         self.cellSize = CGSizeMake(size, size * 0.6)
         self.collectionView.reloadData()
