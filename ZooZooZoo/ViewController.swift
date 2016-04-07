@@ -22,18 +22,28 @@ struct VideoCategory {
 
 class ViewController: UIViewController {
 
-    var controllers: [UIViewController]?
+    var tabPageViewController :TabPageViewController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupPageViewController()
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if self.controllers == nil {
-            setupView()
+        if let tpvc = self.tabPageViewController {
+            let nc = self.navigationController!
+            nc.viewControllers = [tpvc]
+            self.presentViewController(nc, animated: false, completion: nil)
+        }
+        else {
+            setupPageViewController()
         }
     }
 }
 
 extension ViewController {
-    private func setupView() {
+    private func setupPageViewController() {
         let tc = TabPageViewController.create()
         tc.isInfinity = true
         let image = UIImage(named: "nav_header_logo")
@@ -49,15 +59,10 @@ extension ViewController {
         
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Favorite), "お気に入り"))
         tc.tabItems.append((SettingViewController.getInstance(), "設定"))
-
-        self.controllers = [tc]
-        let nc = self.navigationController!
-        nc.viewControllers = [tc]
-        
         
         var option = TabPageOption()
         option.currentColor = UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 1.0)
         tc.option = option
-        self.presentViewController(nc, animated: false, completion: nil)
+        self.tabPageViewController = tc
     }
 }
