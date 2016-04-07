@@ -36,6 +36,9 @@ extension ViewController {
     private func setupView() {
         let tc = TabPageViewController.create()
         tc.isInfinity = true
+        let image = UIImage(named: "nav_header_logo")
+        let imageView = UIImageView(image: image)
+        tc.navigationItem.titleView = imageView
         
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Popular), "人気"))
         tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New), "新着"))
@@ -53,7 +56,7 @@ extension ViewController {
         
         
         var option = TabPageOption()
-        option.currentColor = UIColor(red: 246/255, green: 175/255, blue: 32/255, alpha: 1.0)
+        option.currentColor = UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 1.0)
         tc.option = option
         self.presentViewController(nc, animated: false, completion: nil)
     }
