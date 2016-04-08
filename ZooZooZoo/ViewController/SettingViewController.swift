@@ -56,6 +56,9 @@ extension SettingViewController {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let segue = SettingData(rawValue: indexPath.row)?.segueID {
+            self.performSegueWithIdentifier(segue, sender: nil)
+        }
     }
 }
 
@@ -103,6 +106,19 @@ private enum SettingData: Int {
             }
         case .NumberOfRows:
             return ""
+        }
+    }
+    
+    var segueID: String? {
+        switch self {
+        case .Request:
+            return nil
+        case .Copyright:
+            return "SettingToLicence"
+        case .DevMode:
+            return nil
+        case .NumberOfRows:
+            return nil
         }
     }
 }

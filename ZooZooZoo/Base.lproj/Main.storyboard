@@ -268,11 +268,48 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="PLt-bt-xQN" id="Is0-4r-SAr"/>
+                        <segue destination="sUm-gI-PUi" kind="show" identifier="SettingToLicence" id="ni7-fM-2eT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOQ-hm-Cxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1758" y="1306"/>
+        </scene>
+        <!--Licence View Controller-->
+        <scene sceneID="g1i-me-xnS">
+            <objects>
+                <viewController storyboardIdentifier="LicenceViewController" id="sUm-gI-PUi" customClass="LicenceViewController" customModule="ZooZooZoo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vo6-3E-lJA"/>
+                        <viewControllerLayoutGuide type="bottom" id="UOM-v3-iSa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qas-MQ-v5u">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flO-Wh-hvX">
+                                <rect key="frame" x="10" y="64" width="580" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="flO-Wh-hvX" firstAttribute="top" secondItem="Vo6-3E-lJA" secondAttribute="bottom" id="kAb-Vg-7Ka"/>
+                            <constraint firstItem="flO-Wh-hvX" firstAttribute="leading" secondItem="qas-MQ-v5u" secondAttribute="leading" constant="10" id="p4P-G8-XF8"/>
+                            <constraint firstAttribute="trailing" secondItem="flO-Wh-hvX" secondAttribute="trailing" constant="10" id="pZQ-6o-lT5"/>
+                            <constraint firstItem="UOM-v3-iSa" firstAttribute="top" secondItem="flO-Wh-hvX" secondAttribute="bottom" id="xAa-bS-CmP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="flO-Wh-hvX" id="lSI-HT-Uuw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3l8-fo-boJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2533" y="1306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fpo-5x-PSV">
@@ -297,4 +334,5 @@
     <resources>
         <image name="play" width="102" height="102"/>
     </resources>
+    <color key="tintColor" red="0.54117647058823526" green="0.78431372549019607" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -28,6 +28,7 @@
 		8F9F61891CB7FC8800C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
 		8F9F618A1CB7FC9400C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
 		8F9F618B1CB7FC9400C96076 /* SwiftRefresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */; };
 		8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C231CB0FD6A0066DD5C /* Config.swift */; };
 		8FD73C261CB29EFC0066DD5C /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */; };
 		DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BAB71CAB73190045E08A /* AnimalMovie.swift */; };
@@ -103,6 +104,7 @@
 		8F5517FF1CB0270300492953 /* NIFTYManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NIFTYManager.swift; path = Manager/NIFTYManager.swift; sourceTree = "<group>"; };
 		8F5518011CB0DAD900492953 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRefresher.framework; path = Carthage/Build/iOS/SwiftRefresher.framework; sourceTree = "<group>"; };
+		8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenceViewController.swift; path = ViewController/LicenceViewController.swift; sourceTree = "<group>"; };
 		8FD73C231CB0FD6A0066DD5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityManager.swift; path = Manager/ActivityManager.swift; sourceTree = "<group>"; };
 		DB70BAB71CAB73190045E08A /* AnimalMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalMovie.swift; path = Model/AnimalMovie.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				DB70BADE1CACD6250045E08A /* VideoListViewController.swift */,
 				8F5517FD1CAF69AA00492953 /* SettingViewController.swift */,
+				8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */,
 				DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */,
 				8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */,
+				8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */,
 				DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */,
 				8F5517771CA66F7200492953 /* AppDelegate.swift in Sources */,
 				8F5517FE1CAF69AA00492953 /* SettingViewController.swift in Sources */,
