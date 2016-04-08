@@ -10,7 +10,7 @@ import UIKit
 import TabPageViewController
 
 struct VideoCategory {
-    static let category: [String] = ["犬", "ネコ", "うさぎ", "ハムスター", "ハリネズミ", "フェレット", "ペンギン"]
+    static let category: [String] = ["犬", "ネコ", "うさぎ", "ハムスター", "ハリネズミ", "フェレット", "インコ", "ペンギン"]
     static let categoryColor: [UIColor] = [
         UIColor(red: 251/255, green: 252/255, blue: 149/255, alpha: 1.0),
         UIColor(red: 252/255, green: 150/255, blue: 149/255, alpha: 1.0),
