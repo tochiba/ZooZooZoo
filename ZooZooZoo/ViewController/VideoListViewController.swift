@@ -9,6 +9,7 @@
 import Foundation
 import WebImage
 import XCDYouTubeKit
+import SwiftRefresher
 
 class VideoListViewController: UIViewController {
     
@@ -41,7 +42,7 @@ class VideoListViewController: UIViewController {
         return self.init()
     }
     
-    class func getInstanceWithMode(mode: Mode, color: UIColor=UIColor.whiteColor()) -> VideoListViewController {
+    class func getInstanceWithMode(mode: Mode, color: UIColor=UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 0.4)) -> VideoListViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc = storyboard.instantiateViewControllerWithIdentifier("VideoListViewController") as? VideoListViewController {
             vc.view.backgroundColor = color
@@ -57,7 +58,15 @@ class VideoListViewController: UIViewController {
         super.viewDidLoad()
         self.indicator.hidden = false
         self.indicator.startAnimating()
-        reload()
+        
+        let refresher = Refresher { [weak self] () -> Void in
+            self?.reload()
+            self?.loadData()
+            self?.collectionView.reloadData()
+            self?.collectionView.srf_endRefreshing()
+        }
+        self.collectionView.srf_addRefresher(refresher)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
