@@ -115,6 +115,7 @@ extension VideoListViewController {
             return
         case .Favorite:
             // TODO: お気に入り読み込み
+            FavoriteManager.sharedInstance.load(self)
             return
         case .New:
             if Config.isNotDevMode() {
@@ -149,6 +150,7 @@ extension VideoListViewController {
             return
         case .Favorite:
             // TODO: お気に入り読み込み
+            self.videoList = FavoriteManager.sharedInstance.getFavoriteVideos()
             return
         case .New:
             if Config.isNotDevMode() {
@@ -272,6 +274,12 @@ extension VideoListViewController: UICollectionViewDelegate {
 
         if Config.isNotDevMode() {
             NIFTYManager.sharedInstance.incrementLike(v)
+            if self.mode == .Favorite {
+                FavoriteManager.sharedInstance.removeFavoriteVideo(v)
+            }
+            else {
+                FavoriteManager.sharedInstance.addFavoriteVideo(v)
+            }
         }
         else {
             NIFTYManager.sharedInstance.deliverThisVideo(v)
@@ -297,6 +305,12 @@ extension VideoListViewController: SearchAPIManagerDelegate {
 
 extension VideoListViewController: NIFTYManagerDelegate {
     func didLoad() {
+        reload()
+    }
+}
+
+extension VideoListViewController: FavoriteManagerDelegate {
+    func didLoadFavoriteData() {
         reload()
     }
 }

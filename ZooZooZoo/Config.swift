@@ -15,7 +15,7 @@ class Config {
     
     class func isNotDevMode() -> Bool {
         let d = NSUserDefaults.standardUserDefaults()
-        return d.boolForKey(Key.devModeKey)
+        return !d.boolForKey(Key.devModeKey)
     }
     class func setDevMode(isMode: Bool) {
         let d = NSUserDefaults.standardUserDefaults()
