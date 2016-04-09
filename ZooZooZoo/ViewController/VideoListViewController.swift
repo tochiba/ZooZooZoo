@@ -114,7 +114,6 @@ extension VideoListViewController {
             }
             return
         case .Favorite:
-            // TODO: お気に入り読み込み
             FavoriteManager.sharedInstance.load(self)
             return
         case .New:
@@ -149,7 +148,6 @@ extension VideoListViewController {
             }
             return
         case .Favorite:
-            // TODO: お気に入り読み込み
             self.videoList = FavoriteManager.sharedInstance.getFavoriteVideos()
             return
         case .New:
