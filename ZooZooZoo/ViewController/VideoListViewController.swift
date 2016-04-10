@@ -315,11 +315,10 @@ extension VideoListViewController: CardCollectionCellDelegate {
         reload()
     }
     
-    func didPushSetting() {
-        
+    func didPushSetting(video: AnimalVideo) {
     }
     
-    func didPushPlay() {
-        
+    func didPushPlay(video: AnimalVideo) {
+        playVideo(video.id)
     }
 }
