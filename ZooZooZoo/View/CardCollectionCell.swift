@@ -57,6 +57,8 @@ class CardCollectionCell: UICollectionViewCell {
     }
     
     private func setupFavoButton(id: String) {
+        self.favoriteButton.hidden = !Config.isNotDevMode()
+        
         if FavoriteManager.sharedInstance.isFavoriteVideo(id) {
             self.favoriteButton.tintColor = selectColor()
         }

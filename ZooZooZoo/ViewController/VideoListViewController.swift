@@ -264,21 +264,6 @@ extension VideoListViewController: UICollectionViewDataSource {
 extension VideoListViewController: UICollectionViewDelegate {
     // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        let v = self.videoList[indexPath.row]
-//        playVideo(v.id)
-//
-//        if Config.isNotDevMode() {
-//            NIFTYManager.sharedInstance.incrementLike(v)
-//            if self.mode == .Favorite {
-//                FavoriteManager.sharedInstance.removeFavoriteVideo(v)
-//            }
-//            else {
-//                FavoriteManager.sharedInstance.addFavoriteVideo(v)
-//            }
-//        }
-//        else {
-//            NIFTYManager.sharedInstance.deliverThisVideo(v)
-//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -331,6 +316,15 @@ extension VideoListViewController: CardCollectionCellDelegate {
         let myAction_3 = UIAlertAction(title: NSLocalizedString("share_cancel", comment: ""), style: UIAlertActionStyle.Cancel, handler: {
             (action: UIAlertAction) in
         })
+        
+        if !Config.isNotDevMode() {
+            let myAction_0 = UIAlertAction(title: NSLocalizedString("この動画を入稿する", comment: ""), style: UIAlertActionStyle.Default, handler: {
+                (action: UIAlertAction) in
+                NIFTYManager.sharedInstance.deliverThisVideo(video)
+            })
+            myAlert.addAction(myAction_0)
+        }
+        
         myAlert.addAction(myAction_1)
         myAlert.addAction(myAction_2)
         myAlert.addAction(myAction_3)
