@@ -17,10 +17,6 @@
 		8F5517971CA66F7300492953 /* ZooZooZooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517961CA66F7300492953 /* ZooZooZooUITests.swift */; };
 		8F5517A61CA6DE3D00492953 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A41CA6DE3D00492953 /* SwiftyJSON.framework */; };
 		8F5517A71CA6DE3D00492953 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A51CA6DE3D00492953 /* Alamofire.framework */; };
-		8F5517A81CA6DE4B00492953 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A41CA6DE3D00492953 /* SwiftyJSON.framework */; };
-		8F5517A91CA6DE4B00492953 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A41CA6DE3D00492953 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F5517AB1CA6DE5000492953 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A51CA6DE3D00492953 /* Alamofire.framework */; };
-		8F5517AC1CA6DE5000492953 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5517A51CA6DE3D00492953 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517AE1CA6E0AC00492953 /* APIManager.swift */; };
 		8F5517FE1CAF69AA00492953 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517FD1CAF69AA00492953 /* SettingViewController.swift */; };
 		8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5517FF1CB0270300492953 /* NIFTYManager.swift */; };
@@ -29,29 +25,17 @@
 		8F73ACA41CBA2EDD0051D107 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F73ACA61CBA2EDD0051D107 /* Localizable.strings */; };
 		8F73ACB01CBA43F80051D107 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */; };
 		8F9F61891CB7FC8800C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
-		8F9F618A1CB7FC9400C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
-		8F9F618B1CB7FC9400C96076 /* SwiftRefresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */; };
 		8F9F618F1CB8CCC400C96076 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F618E1CB8CCC400C96076 /* Realm.framework */; };
-		8F9F61901CB8CCD100C96076 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F618E1CB8CCC400C96076 /* Realm.framework */; };
-		8F9F61911CB8CCD100C96076 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F618E1CB8CCC400C96076 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F9F61931CB8CCF100C96076 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F61921CB8CCF100C96076 /* FavoriteManager.swift */; };
 		8F9F61951CB8E62C00C96076 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61941CB8E62C00C96076 /* RealmSwift.framework */; };
-		8F9F61961CB8E63300C96076 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61941CB8E62C00C96076 /* RealmSwift.framework */; };
-		8F9F61971CB8E63300C96076 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61941CB8E62C00C96076 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C231CB0FD6A0066DD5C /* Config.swift */; };
 		8FD73C261CB29EFC0066DD5C /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */; };
 		DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BAB71CAB73190045E08A /* AnimalMovie.swift */; };
 		DB70BADA1CACBEC60045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
-		DB70BADB1CACBECB0045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
-		DB70BADC1CACBECB0045E08A /* TabPageViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BADE1CACD6250045E08A /* VideoListViewController.swift */; };
 		DB70BAE11CACD7320045E08A /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE01CACD7320045E08A /* WebImage.framework */; };
-		DB70BAE21CACD7370045E08A /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE01CACD7320045E08A /* WebImage.framework */; };
-		DB70BAE31CACD7370045E08A /* WebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE01CACD7320045E08A /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB70BAE51CAD14490045E08A /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE41CAD14490045E08A /* XCDYouTubeKit.framework */; };
-		DB70BAE61CAD144E0045E08A /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE41CAD14490045E08A /* XCDYouTubeKit.framework */; };
-		DB70BAE71CAD144E0045E08A /* XCDYouTubeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAE41CAD14490045E08A /* XCDYouTubeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,27 +54,6 @@
 			remoteInfo = ZooZooZoo;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8F5517AA1CA6DE4B00492953 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8F5517A91CA6DE4B00492953 /* SwiftyJSON.framework in Embed Frameworks */,
-				DB70BAE71CAD144E0045E08A /* XCDYouTubeKit.framework in Embed Frameworks */,
-				8F5517AC1CA6DE5000492953 /* Alamofire.framework in Embed Frameworks */,
-				DB70BADC1CACBECB0045E08A /* TabPageViewController.framework in Embed Frameworks */,
-				8F9F61911CB8CCD100C96076 /* Realm.framework in Embed Frameworks */,
-				DB70BAE31CACD7370045E08A /* WebImage.framework in Embed Frameworks */,
-				8F9F61971CB8E63300C96076 /* RealmSwift.framework in Embed Frameworks */,
-				8F9F618B1CB7FC9400C96076 /* SwiftRefresher.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1AECB451EC228C7520FD51C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,20 +124,12 @@
 			files = (
 				8F9F61951CB8E62C00C96076 /* RealmSwift.framework in Frameworks */,
 				8F9F618F1CB8CCC400C96076 /* Realm.framework in Frameworks */,
-				8F9F61961CB8E63300C96076 /* RealmSwift.framework in Frameworks */,
 				8F9F61891CB7FC8800C96076 /* SwiftRefresher.framework in Frameworks */,
 				DB70BAE51CAD14490045E08A /* XCDYouTubeKit.framework in Frameworks */,
-				DB70BAE61CAD144E0045E08A /* XCDYouTubeKit.framework in Frameworks */,
 				DB70BAE11CACD7320045E08A /* WebImage.framework in Frameworks */,
 				DB70BADA1CACBEC60045E08A /* TabPageViewController.framework in Frameworks */,
 				8F5517A61CA6DE3D00492953 /* SwiftyJSON.framework in Frameworks */,
-				DB70BADB1CACBECB0045E08A /* TabPageViewController.framework in Frameworks */,
-				8F9F618A1CB7FC9400C96076 /* SwiftRefresher.framework in Frameworks */,
-				8F9F61901CB8CCD100C96076 /* Realm.framework in Frameworks */,
 				8F5517A71CA6DE3D00492953 /* Alamofire.framework in Frameworks */,
-				8F5517A81CA6DE4B00492953 /* SwiftyJSON.framework in Frameworks */,
-				8F5517AB1CA6DE5000492953 /* Alamofire.framework in Frameworks */,
-				DB70BAE21CACD7370045E08A /* WebImage.framework in Frameworks */,
 				344DF3A68C0D109D02861592 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,10 +285,10 @@
 				8F55176F1CA66F7200492953 /* Sources */,
 				8F5517701CA66F7200492953 /* Frameworks */,
 				8F5517711CA66F7200492953 /* Resources */,
-				8F5517AA1CA6DE4B00492953 /* Embed Frameworks */,
 				E401A8042223AA9A339E5AA7 /* Embed Pods Frameworks */,
 				0C63BF5FF7319C2168CA9ED2 /* Copy Pods Resources */,
 				8F73ACB11CBA50DC0051D107 /* ShellScript */,
+				8F73ACB21CBAAA690051D107 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -487,6 +442,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 134f98bed84563329183f9853f108d9632d03cf2 e9a70f97ba113caafb4b2209d5b9c149d1a0799f38137e70a32e222e3b2f5f31";
+		};
+		8F73ACB21CBAAA690051D107 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftRefresher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TabPageViewController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/XCDYouTubeKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		AF72D805DAFFA5E984FDBCB4 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
