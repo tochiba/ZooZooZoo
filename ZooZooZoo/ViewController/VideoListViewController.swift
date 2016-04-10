@@ -224,7 +224,8 @@ extension VideoListViewController {
     }
     
     private func playVideo(id: String) {
-        let vc = XCDYouTubeVideoPlayerViewController(videoIdentifier: id)
+        let vc = VideoViewController(videoIdentifier: id)
+//        let vc = XCDYouTubeVideoPlayerViewController(videoIdentifier: id)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerPlaybackDidFinish:", name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
         self.presentMoviePlayerViewControllerAnimated(vc)
     }

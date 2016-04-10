@@ -27,6 +27,7 @@
 		8F5518021CB0DAD900492953 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5518011CB0DAD900492953 /* Constants.swift */; };
 		8F73AC931CB9F1780051D107 /* CardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73AC921CB9F1780051D107 /* CardCollectionCell.swift */; };
 		8F73ACA41CBA2EDD0051D107 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F73ACA61CBA2EDD0051D107 /* Localizable.strings */; };
+		8F73ACB01CBA43F80051D107 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */; };
 		8F9F61891CB7FC8800C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
 		8F9F618A1CB7FC9400C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
 		8F9F618B1CB7FC9400C96076 /* SwiftRefresher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -138,6 +139,7 @@
 		8F73ACAC1CBA3A320051D107 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F73ACAD1CBA3B640051D107 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F73ACAE1CBA3C430051D107 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = ViewController/VideoViewController.swift; sourceTree = "<group>"; };
 		8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRefresher.framework; path = Carthage/Build/iOS/SwiftRefresher.framework; sourceTree = "<group>"; };
 		8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenceViewController.swift; path = ViewController/LicenceViewController.swift; sourceTree = "<group>"; };
 		8F9F618E1CB8CCC400C96076 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				DB70BADE1CACD6250045E08A /* VideoListViewController.swift */,
 				8F5517FD1CAF69AA00492953 /* SettingViewController.swift */,
 				8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */,
+				8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */,
 				8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */,
 				8F73AC931CB9F1780051D107 /* CardCollectionCell.swift in Sources */,
+				8F73ACB01CBA43F80051D107 /* VideoViewController.swift in Sources */,
 				8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */,
 				DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */,
 				8F5517771CA66F7200492953 /* AppDelegate.swift in Sources */,
