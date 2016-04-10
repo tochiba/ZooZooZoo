@@ -318,23 +318,19 @@ extension VideoListViewController: CardCollectionCellDelegate {
     func didPushSetting(video: AnimalVideo) {
         
         let myAlert = UIAlertController(title: video.title, message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        // アクションを生成.
-        let myAction_1 = UIAlertAction(title: "友達に教える", style: UIAlertActionStyle.Default, handler: {
+        let myAction_1 = UIAlertAction(title: NSLocalizedString("share_share", comment: ""), style: UIAlertActionStyle.Default, handler: {
             (action: UIAlertAction) in
             ActivityManager.showActivityView(self, video: video)
         })
         
-        let myAction_2 = UIAlertAction(title: "通報", style: UIAlertActionStyle.Destructive, handler: {
+        let myAction_2 = UIAlertAction(title: NSLocalizedString("share_illegal", comment: ""), style: UIAlertActionStyle.Destructive, handler: {
             (action: UIAlertAction) in
             NIFTYManager.sharedInstance.illegalThisVideo(video)
         })
         
-        let myAction_3 = UIAlertAction(title: "やめる", style: UIAlertActionStyle.Cancel, handler: {
+        let myAction_3 = UIAlertAction(title: NSLocalizedString("share_cancel", comment: ""), style: UIAlertActionStyle.Cancel, handler: {
             (action: UIAlertAction) in
         })
-        
-        // アクションを追加.
         myAlert.addAction(myAction_1)
         myAlert.addAction(myAction_2)
         myAlert.addAction(myAction_3)

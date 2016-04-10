@@ -10,6 +10,7 @@ import UIKit
 import TabPageViewController
 
 struct VideoCategory {
+    static let localizedCategory: [String] = ["dog", "cat", "rabbit", "hamster", "hedgehog", "ferret", "parakeet", "penguin"]
     static let category: [String] = ["犬", "ネコ", "うさぎ", "ハムスター", "ハリネズミ", "フェレット", "インコ", "ペンギン"]
     static let categoryColor: [UIColor] = [
         UIColor(red: 251/255, green: 252/255, blue: 149/255, alpha: 1.0),
@@ -49,17 +50,22 @@ extension ViewController {
         let image = UIImage(named: "nav_header_logo")
         let imageView = UIImageView(image: image)
         tc.navigationItem.titleView = imageView
-        
-        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Popular), "人気"))
-        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New), "新着"))
+      
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Popular),
+            NSLocalizedString("category_popular", comment: "")))
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.New),
+            NSLocalizedString("category_new", comment: "")))
         
         for tuple in VideoCategory.category.enumerate() {
-//            tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: VideoCategory.categoryColor[tuple.index]), tuple.element))
-            tc.tabItems.append((VideoListViewController.getInstance(tuple.element, color: UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 0.4)), tuple.element))
+            let lstr = VideoCategory.localizedCategory[tuple.index]
+            tc.tabItems.append((VideoListViewController.getInstance(tuple.element,
+                color: UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 0.4)),
+                NSLocalizedString(lstr, comment: "")))
         }
         
-        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Favorite), "お気に入り"))
-        tc.tabItems.append((SettingViewController.getInstance(), "設定"))
+        tc.tabItems.append((VideoListViewController.getInstanceWithMode(.Favorite), NSLocalizedString("category_favorite", comment: "")))
+        tc.tabItems.append((SettingViewController.getInstance(),
+            NSLocalizedString("category_setting", comment: "")))
         
         var option = TabPageOption()
         option.currentColor = UIColor(red: 138/255, green: 200/255, blue: 135/255, alpha: 1.0)
