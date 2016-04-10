@@ -18,6 +18,20 @@ class NIFTYManager {
     private var animalVideoDic: [String:[AnimalVideo]] = [:]
     weak var delegate: NIFTYManagerDelegate?
     
+    func illegalThisVideo(video: AnimalVideo) {
+        let v = IllegalVideo()
+        v.id = video.id
+        v.title = video.title
+        v.date = video.date
+        v.animalName = video.animalName
+        
+        v.saveInBackgroundWithBlock({ error in
+            if error != nil {
+                // Error
+            }
+        })
+    }
+    
     func deliverThisVideo(video: AnimalVideo) {
         if video.id.utf16.count == 0 {
             return

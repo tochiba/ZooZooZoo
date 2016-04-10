@@ -11,8 +11,8 @@ import UIKit
 
 protocol CardCollectionCellDelegate: class {
     func didPushFavorite()
-    func didPushSetting()
-    func didPushPlay()
+    func didPushSetting(video: AnimalVideo)
+    func didPushPlay(video: AnimalVideo)
 }
 
 class CardCollectionCell: UICollectionViewCell {
@@ -37,10 +37,14 @@ class CardCollectionCell: UICollectionViewCell {
         }
     }
     @IBAction func didPushSettingButton(sender: AnyObject) {
-        self.delegate?.didPushSetting()
+        if let _v = self.video {
+            self.delegate?.didPushSetting(_v)
+        }
     }
     @IBAction func didPushPlayButton(sender: AnyObject) {
-        self.delegate?.didPushPlay()
+        if let _v = self.video {
+            self.delegate?.didPushPlay(_v)
+        }
     }
     
     override func awakeFromNib() {

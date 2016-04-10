@@ -9,6 +9,40 @@
 import Foundation
 import NCMB
 
+class IllegalVideo: NCMBObject {
+    var id: String              = "" {
+        didSet {
+            self.setObject(id, forKey: AnimalVideoKey.idKey)
+        }
+    }
+    var animalName: String      = "" {
+        didSet {
+            self.setObject(animalName, forKey: AnimalVideoKey.animalNameKey)
+        }
+    }
+    var date: String            = "" {
+        didSet {
+            self.setObject(date, forKey: AnimalVideoKey.dateKey)
+        }
+    }
+    var title: String           = "" {
+        didSet {
+            self.setObject(title, forKey: AnimalVideoKey.titleKey)
+        }
+    }
+
+    class func className() -> String {
+        return "IllegalVideo"
+    }
+    override init() {
+        super.init(className: IllegalVideo.className())
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(className: IllegalVideo.className())
+    }
+}
+
 class AnimalVideo: NCMBObject, NSCoding {
 
     class func className() -> String {
