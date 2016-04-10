@@ -114,7 +114,6 @@ extension VideoListViewController {
             }
             return
         case .Favorite:
-            // TODO: お気に入り読み込み
             FavoriteManager.sharedInstance.load(self)
             return
         case .New:
@@ -149,7 +148,6 @@ extension VideoListViewController {
             }
             return
         case .Favorite:
-            // TODO: お気に入り読み込み
             self.videoList = FavoriteManager.sharedInstance.getFavoriteVideos()
             return
         case .New:
@@ -245,45 +243,42 @@ extension VideoListViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("VideoCell", forIndexPath: indexPath)
-        let video = self.videoList[indexPath.row]
-        if let imageView = cell.viewWithTag(1) as? UIImageView {
-            imageView.image = nil
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("VideoCell", forIndexPath: indexPath) as? CardCollectionCell {
+            let video = self.videoList[indexPath.row]
+            
+            cell.imageView.image = nil
             if let url = NSURL(string: video.thumbnailUrl) {
-                imageView.sd_setImageWithURL(url)
+                cell.imageView.sd_setImageWithURL(url)
             }
+            cell.titleLabel.text = video.title
+            
+            cell.setup(video, delegate: self)
+            
+            return cell
         }
-        if let timeLabel = cell.viewWithTag(2) as? UILabel {
-            timeLabel.text = video.date
-        }
-        if let titleLabel = cell.viewWithTag(3) as? UILabel {
-            titleLabel.text = video.title
-        }
-        if let likeLabel = cell.viewWithTag(4) as? UILabel {
-            likeLabel.text = String(video.likeCount) + "Like♡"
-        }
-        return cell
+        
+        return UICollectionViewCell()
     }
 }
 
 extension VideoListViewController: UICollectionViewDelegate {
     // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let v = self.videoList[indexPath.row]
-        playVideo(v.id)
-
-        if Config.isNotDevMode() {
-            NIFTYManager.sharedInstance.incrementLike(v)
-            if self.mode == .Favorite {
-                FavoriteManager.sharedInstance.removeFavoriteVideo(v)
-            }
-            else {
-                FavoriteManager.sharedInstance.addFavoriteVideo(v)
-            }
-        }
-        else {
-            NIFTYManager.sharedInstance.deliverThisVideo(v)
-        }
+//        let v = self.videoList[indexPath.row]
+//        playVideo(v.id)
+//
+//        if Config.isNotDevMode() {
+//            NIFTYManager.sharedInstance.incrementLike(v)
+//            if self.mode == .Favorite {
+//                FavoriteManager.sharedInstance.removeFavoriteVideo(v)
+//            }
+//            else {
+//                FavoriteManager.sharedInstance.addFavoriteVideo(v)
+//            }
+//        }
+//        else {
+//            NIFTYManager.sharedInstance.deliverThisVideo(v)
+//        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -312,5 +307,19 @@ extension VideoListViewController: NIFTYManagerDelegate {
 extension VideoListViewController: FavoriteManagerDelegate {
     func didLoadFavoriteData() {
         reload()
+    }
+}
+
+extension VideoListViewController: CardCollectionCellDelegate {
+    func didPushFavorite() {
+        reload()
+    }
+    
+    func didPushSetting() {
+        
+    }
+    
+    func didPushPlay() {
+        
     }
 }
