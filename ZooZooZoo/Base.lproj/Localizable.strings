@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  ZooZooZoo
+
+  Created by 千葉 俊輝 on 2016/04/10.
+  Copyright © 2016年 Toshiki Chiba. All rights reserved.
+*/
+
+"share_share"   = "Share your friends";
+"share_illegal" = "Report";
+"share_cancel"  = "Cancel";
+
+"setting_request"   = "Demand";
+"setting_licence"   = "Licence";
+"setting_toolmode"  = "Developer Mode ON";
+
+"category_popular"  = "Popular";
+"category_new"      = "New";
+"category_favorite" = "Favorite";
+"category_setting"  = "Setting";
+
+"dog"       = "Dog";
+"cat"       = "Cat";
+"rabbit"    = "Rabbit";
+"hamster"   = "Hamster";
+"hedgehog"  = "Hedgehog";
+"ferret"    = "Ferret";
+"parakeet"  = "Parakeet";
+"penguin"   = "Penguin";

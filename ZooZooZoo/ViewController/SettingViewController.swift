@@ -35,8 +35,8 @@ class SettingTableView: UITableView {
     }
     
     private func check() {
-        if self.counter > 10 {
-            Config.setDevMode(!Config.isNotDevMode())
+        if self.counter > 11 {
+            Config.setDevMode(Config.isNotDevMode())
             self.reloadData()
             resetTimer()
         }
@@ -94,15 +94,15 @@ private enum SettingData: Int {
     var title: String {
         switch self {
         case .Request:
-            return "要望" //NSLocalizedString("settings_row_version", comment: "")
+            return NSLocalizedString("setting_request", comment: "")
         case .Copyright:
-            return "ライセンス" //NSLocalizedString("settings_row_copyright", comment: "")
+            return NSLocalizedString("setting_licence", comment: "")
         case .DevMode:
             if Config.isNotDevMode() {
                 return ""
             }
             else {
-                return "入稿ツールモード ON"
+                return NSLocalizedString("setting_toolmode", comment: "")
             }
         case .NumberOfRows:
             return ""
