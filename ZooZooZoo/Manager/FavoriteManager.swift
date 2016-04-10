@@ -42,6 +42,13 @@ class FavoriteManager {
     func getFavoriteVideos() -> [AnimalVideo] {
         return self.animalVideos.reverse()
     }
+    func isFavoriteVideo(id: String) -> Bool {
+        if let _ = self.animalVideos.indexOf({$0.id == id}) {
+            return true
+        }
+        
+        return false
+    }
     
     func addFavoriteVideo(video: AnimalVideo) {
         if let _ = self.animalVideos.indexOf({$0.id == video.id}) {
