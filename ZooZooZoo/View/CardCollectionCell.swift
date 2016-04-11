@@ -21,17 +21,20 @@ class CardCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBAction func didPushFavoriteButton(sender: AnyObject) {
         if let _v = self.video {
             if FavoriteManager.sharedInstance.isFavoriteVideo(_v.id) {
                 self.favoriteButton.tintColor = UIColor.lightGrayColor()
                 FavoriteManager.sharedInstance.removeFavoriteVideo(_v)
+                changeLikeCount(false)
             }
             else {
                 self.favoriteButton.tintColor = selectColor()
                 FavoriteManager.sharedInstance.addFavoriteVideo(_v)
                 NIFTYManager.sharedInstance.incrementLike(_v)
+                changeLikeCount(true)
             }
             self.delegate?.didPushFavorite()
         }
@@ -57,7 +60,8 @@ class CardCollectionCell: UICollectionViewCell {
     }
     
     private func setupFavoButton(id: String) {
-        self.favoriteButton.hidden = !Config.isNotDevMode()
+        self.favoriteButton.hidden  = !Config.isNotDevMode()
+        self.likeLabel.hidden       = !Config.isNotDevMode()
         
         if FavoriteManager.sharedInstance.isFavoriteVideo(id) {
             self.favoriteButton.tintColor = selectColor()
@@ -75,5 +79,19 @@ class CardCollectionCell: UICollectionViewCell {
     
     private func selectColor() -> UIColor {
         return UIColor(red: 225/255, green: 125/255, blue: 205/255, alpha: 0.7)
+    }
+    
+    private func changeLikeCount(isAdd: Bool) {
+        if let text = self.likeLabel.text {
+            if var num = Int(text) {
+                if isAdd {
+                    num += 1
+                }
+                else {
+                    num -= 1
+                }
+                self.video?.likeCount = num
+            }
+        }
     }
 }

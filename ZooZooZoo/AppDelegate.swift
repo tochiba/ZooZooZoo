@@ -10,6 +10,7 @@ import UIKit
 import NCMB
 import Fabric
 import Crashlytics
+import Meyasubaco
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self])
         NCMB.setApplicationKey(API_ID.NCMB_APP_KEY, clientKey: API_ID.NCMB_CLIENT_KEY)
+        Meyasubaco.setApiKey(API_KEY.Meyasubaco)
         return true
     }
 

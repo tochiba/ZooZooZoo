@@ -8,9 +8,16 @@
 
 import Foundation
 import UIKit
+import Meyasubaco
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var tableView: SettingTableView!
+    @IBOutlet weak var bannerView: BannerView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.bannerView.setup(self, unitID: AD.BannerUnitID)
+    }
 }
 
 class SettingTableView: UITableView {
@@ -58,6 +65,9 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let segue = SettingData(rawValue: indexPath.row)?.segueID {
             self.performSegueWithIdentifier(segue, sender: nil)
+        }
+        else if SettingData(rawValue: indexPath.row) == .Request {
+            Meyasubaco.showCommentViewController(self)
         }
     }
 }

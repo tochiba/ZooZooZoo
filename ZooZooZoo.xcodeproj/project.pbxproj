@@ -32,6 +32,7 @@
 		8F9F61951CB8E62C00C96076 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61941CB8E62C00C96076 /* RealmSwift.framework */; };
 		8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C231CB0FD6A0066DD5C /* Config.swift */; };
 		8FD73C261CB29EFC0066DD5C /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */; };
+		8FE4EA561CBBF5E700F62BCE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4EA551CBBF5E700F62BCE /* BannerView.swift */; };
 		DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BAB71CAB73190045E08A /* AnimalMovie.swift */; };
 		DB70BADA1CACBEC60045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
 		DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BADE1CACD6250045E08A /* VideoListViewController.swift */; };
@@ -112,6 +113,7 @@
 		8F9F61941CB8E62C00C96076 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		8FD73C231CB0FD6A0066DD5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityManager.swift; path = Manager/ActivityManager.swift; sourceTree = "<group>"; };
+		8FE4EA551CBBF5E700F62BCE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerView.swift; path = View/BannerView.swift; sourceTree = "<group>"; };
 		DB70BAB71CAB73190045E08A /* AnimalMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalMovie.swift; path = Model/AnimalMovie.swift; sourceTree = "<group>"; };
 		DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TabPageViewController.framework; path = Carthage/Build/iOS/TabPageViewController.framework; sourceTree = "<group>"; };
 		DB70BADE1CACD6250045E08A /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoListViewController.swift; path = ViewController/VideoListViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				8F73AC921CB9F1780051D107 /* CardCollectionCell.swift */,
+				8FE4EA551CBBF5E700F62BCE /* BannerView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				8F5517791CA66F7200492953 /* ViewController.swift in Sources */,
 				8F9F61931CB8CCF100C96076 /* FavoriteManager.swift in Sources */,
 				8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */,
+				8FE4EA561CBBF5E700F62BCE /* BannerView.swift in Sources */,
 				DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */,
 				8F5518001CB0270300492953 /* NIFTYManager.swift in Sources */,
 				8F73AC931CB9F1780051D107 /* CardCollectionCell.swift in Sources */,
