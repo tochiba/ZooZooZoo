@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Meyasubaco
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var tableView: SettingTableView!
@@ -58,6 +59,9 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let segue = SettingData(rawValue: indexPath.row)?.segueID {
             self.performSegueWithIdentifier(segue, sender: nil)
+        }
+        else if SettingData(rawValue: indexPath.row) == .Request {
+            Meyasubaco.showCommentViewController(self)
         }
     }
 }
