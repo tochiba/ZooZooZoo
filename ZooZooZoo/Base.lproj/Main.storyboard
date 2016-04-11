@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="szj-IE-Yd0">
-                                <rect key="frame" x="0.0" y="94" width="600" height="506"/>
+                                <rect key="frame" x="0.0" y="94" width="600" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="YR3-gl-LL7">
                                     <size key="itemSize" width="400" height="240"/>
@@ -218,10 +218,20 @@
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-Qj-ynu" customClass="BannerView" customModule="ZooZooZoo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eXX-kg-NgL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dFE-Qj-ynu" secondAttribute="trailing" id="15h-F1-aWr"/>
                             <constraint firstItem="wtb-Ox-VMW" firstAttribute="centerY" secondItem="vOj-hy-9MI" secondAttribute="centerY" id="49t-mX-3MZ"/>
+                            <constraint firstItem="tgl-CX-Gt8" firstAttribute="top" secondItem="dFE-Qj-ynu" secondAttribute="bottom" id="5dj-JE-ocm"/>
+                            <constraint firstItem="dFE-Qj-ynu" firstAttribute="top" secondItem="szj-IE-Yd0" secondAttribute="bottom" id="9GO-qu-odi"/>
                             <constraint firstItem="szj-IE-Yd0" firstAttribute="top" secondItem="vOj-hy-9MI" secondAttribute="top" id="BRj-3d-CpX"/>
                             <constraint firstAttribute="bottom" secondItem="szj-IE-Yd0" secondAttribute="bottom" id="BdK-D1-bfL"/>
                             <constraint firstAttribute="trailing" secondItem="szj-IE-Yd0" secondAttribute="trailing" id="CEa-rW-Fas"/>
@@ -230,15 +240,18 @@
                             <constraint firstItem="szj-IE-Yd0" firstAttribute="leading" secondItem="vOj-hy-9MI" secondAttribute="leading" id="bvK-Oq-xeZ"/>
                             <constraint firstItem="wtb-Ox-VMW" firstAttribute="width" secondItem="wtb-Ox-VMW" secondAttribute="height" multiplier="1:1" id="eWr-ib-pa9"/>
                             <constraint firstItem="wtb-Ox-VMW" firstAttribute="width" secondItem="wtb-Ox-VMW" secondAttribute="height" multiplier="1:1" id="fVa-WJ-ZjP"/>
+                            <constraint firstItem="dFE-Qj-ynu" firstAttribute="leading" secondItem="vOj-hy-9MI" secondAttribute="leading" id="wtd-i5-7vl"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="BRj-3d-CpX"/>
+                                <exclude reference="BdK-D1-bfL"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="uFN-mI-ed5"/>
                     <connections>
+                        <outlet property="bannerView" destination="dFE-Qj-ynu" id="iMg-zw-Ww4"/>
                         <outlet property="collectionView" destination="szj-IE-Yd0" id="5ke-rq-EMA"/>
                         <outlet property="indicator" destination="wtb-Ox-VMW" id="AL6-2T-Dlk"/>
                     </connections>
@@ -260,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PLt-bt-xQN" customClass="SettingTableView" customModule="ZooZooZoo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="94" width="600" height="506"/>
+                                <rect key="frame" x="0.0" y="94" width="600" height="456"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingCell" id="whh-Gk-U6h">
@@ -277,16 +290,33 @@
                                     <outlet property="delegate" destination="GOT-gd-YO9" id="75R-rz-Fd3"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOa-ox-INh" customClass="BannerView" customModule="ZooZooZoo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cYM-45-kfB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="PLt-bt-xQN" secondAttribute="trailing" id="6Ad-33-3gl"/>
+                            <constraint firstAttribute="trailing" secondItem="tOa-ox-INh" secondAttribute="trailing" id="9fK-Wa-TB0"/>
+                            <constraint firstItem="tOa-ox-INh" firstAttribute="leading" secondItem="cP4-CO-cLT" secondAttribute="leading" id="HCd-38-5bZ"/>
                             <constraint firstAttribute="bottom" secondItem="PLt-bt-xQN" secondAttribute="bottom" id="OWI-3G-pwp"/>
+                            <constraint firstItem="tOa-ox-INh" firstAttribute="top" secondItem="PLt-bt-xQN" secondAttribute="bottom" id="fLk-Jr-4Al"/>
+                            <constraint firstItem="haO-hi-hO0" firstAttribute="top" secondItem="tOa-ox-INh" secondAttribute="bottom" id="huP-oY-ZIi"/>
                             <constraint firstItem="PLt-bt-xQN" firstAttribute="top" secondItem="Dh4-sD-G6s" secondAttribute="bottom" constant="30" id="reg-Do-hl6"/>
                             <constraint firstItem="PLt-bt-xQN" firstAttribute="leading" secondItem="cP4-CO-cLT" secondAttribute="leading" id="sCE-DS-zSL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OWI-3G-pwp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="tOa-ox-INh" id="HUs-WX-gpd"/>
                         <outlet property="tableView" destination="PLt-bt-xQN" id="Is0-4r-SAr"/>
                         <segue destination="sUm-gI-PUi" kind="show" identifier="SettingToLicence" id="ni7-fM-2eT"/>
                     </connections>

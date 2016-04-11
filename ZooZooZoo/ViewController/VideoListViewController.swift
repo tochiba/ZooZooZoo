@@ -15,6 +15,7 @@ class VideoListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var bannerView: BannerView!
     
     private var cellSize: CGSize = CGSizeZero
     private var videoList: [AnimalVideo] = []
@@ -58,6 +59,7 @@ class VideoListViewController: UIViewController {
         super.viewDidLoad()
         self.indicator.hidden = false
         self.indicator.startAnimating()
+        self.bannerView.setup(self, unitID: AD.BannerUnitID)
         
         let refresher = Refresher { [weak self] () -> Void in
             self?.reload()

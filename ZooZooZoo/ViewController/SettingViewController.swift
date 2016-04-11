@@ -12,6 +12,12 @@ import Meyasubaco
 
 class SettingViewController: UIViewController {
     @IBOutlet weak var tableView: SettingTableView!
+    @IBOutlet weak var bannerView: BannerView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.bannerView.setup(self, unitID: AD.BannerUnitID)
+    }
 }
 
 class SettingTableView: UITableView {
