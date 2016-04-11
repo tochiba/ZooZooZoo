@@ -23,3 +23,32 @@ class BannerView: GADBannerView, GADBannerViewDelegate {
         self.loadRequest(request)
     }
 }
+
+class Interstitial: NSObject, GADInterstitialDelegate {
+    static let sharedInstance = Interstitial()
+    var interstitial: GADInterstitial!
+    
+    override init() {
+        super.init()
+        self.interstitial = createAndLoadInterstitial()
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let i = GADInterstitial(adUnitID: AD.InterstitialID)
+        i.delegate = self
+        let request = GADRequest()
+        i.loadRequest(request)
+        return i
+    }
+    
+    func show(viewController: UIViewController) {
+        if self.interstitial.isReady {
+            weak var vc = viewController
+            self.interstitial.presentFromRootViewController(vc)
+        }        
+    }
+    
+    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+        self.interstitial = createAndLoadInterstitial()
+    }
+}

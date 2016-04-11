@@ -10,6 +10,7 @@ import Foundation
 import WebImage
 import XCDYouTubeKit
 import SwiftRefresher
+import Meyasubaco
 
 class VideoListViewController: UIViewController {
     
@@ -84,6 +85,15 @@ class VideoListViewController: UIViewController {
         super.viewDidAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
         setData()
+        
+        if ReviewChecker.playCheck(self) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let nVC = storyboard.instantiateViewControllerWithIdentifier("ReviewController") as? ReviewController {
+                nVC.delegate = self
+                nVC.showCloseButton = false
+                self.presentViewController(nVC, animated: true, completion: nil)
+            }
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -301,6 +311,15 @@ extension VideoListViewController: FavoriteManagerDelegate {
 extension VideoListViewController: CardCollectionCellDelegate {
     func didPushFavorite() {
         reload()
+        FavoriteCounter.add()
+        if ReviewChecker.favoriteCheck(self) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let nVC = storyboard.instantiateViewControllerWithIdentifier("ReviewController") as? ReviewController {
+                nVC.delegate = self
+                nVC.showCloseButton = false
+                self.presentViewController(nVC, animated: true, completion: nil)
+            }
+        }
     }
     
     func didPushSetting(video: AnimalVideo) {
@@ -337,5 +356,12 @@ extension VideoListViewController: CardCollectionCellDelegate {
     
     func didPushPlay(video: AnimalVideo) {
         playVideo(video.id)
+        PlayCounter.add()
+    }
+}
+
+extension VideoListViewController: ReviewControllerDelegate {
+    func didPushFeedBackButton() {
+        Meyasubaco.showCommentViewController(self)
     }
 }

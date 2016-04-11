@@ -33,6 +33,8 @@
 		8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C231CB0FD6A0066DD5C /* Config.swift */; };
 		8FD73C261CB29EFC0066DD5C /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */; };
 		8FE4EA561CBBF5E700F62BCE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4EA551CBBF5E700F62BCE /* BannerView.swift */; };
+		8FE4EA581CBBFD4C00F62BCE /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4EA571CBBFD4C00F62BCE /* DialogViewController.swift */; };
+		8FE4EA5A1CBBFE8400F62BCE /* ReviewRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4EA591CBBFE8400F62BCE /* ReviewRequestViewController.swift */; };
 		DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BAB71CAB73190045E08A /* AnimalMovie.swift */; };
 		DB70BADA1CACBEC60045E08A /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */; };
 		DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70BADE1CACD6250045E08A /* VideoListViewController.swift */; };
@@ -106,6 +108,7 @@
 		8F73ACAE1CBA3C430051D107 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = ViewController/VideoViewController.swift; sourceTree = "<group>"; };
 		8F73ACB61CBBE50D0051D107 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		8F93F5631CBC20DA00F3E11E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRefresher.framework; path = Carthage/Build/iOS/SwiftRefresher.framework; sourceTree = "<group>"; };
 		8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenceViewController.swift; path = ViewController/LicenceViewController.swift; sourceTree = "<group>"; };
 		8F9F618E1CB8CCC400C96076 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 		8FD73C231CB0FD6A0066DD5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8FD73C251CB29EFC0066DD5C /* ActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityManager.swift; path = Manager/ActivityManager.swift; sourceTree = "<group>"; };
 		8FE4EA551CBBF5E700F62BCE /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerView.swift; path = View/BannerView.swift; sourceTree = "<group>"; };
+		8FE4EA571CBBFD4C00F62BCE /* DialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DialogViewController.swift; path = ViewController/DialogViewController.swift; sourceTree = "<group>"; };
+		8FE4EA591CBBFE8400F62BCE /* ReviewRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewRequestViewController.swift; path = ViewController/ReviewRequestViewController.swift; sourceTree = "<group>"; };
 		DB70BAB71CAB73190045E08A /* AnimalMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimalMovie.swift; path = Model/AnimalMovie.swift; sourceTree = "<group>"; };
 		DB70BAD91CACBEC60045E08A /* TabPageViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TabPageViewController.framework; path = Carthage/Build/iOS/TabPageViewController.framework; sourceTree = "<group>"; };
 		DB70BADE1CACD6250045E08A /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoListViewController.swift; path = ViewController/VideoListViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +281,8 @@
 				8F5517FD1CAF69AA00492953 /* SettingViewController.swift */,
 				8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */,
 				8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */,
+				8FE4EA571CBBFD4C00F62BCE /* DialogViewController.swift */,
+				8FE4EA591CBBFE8400F62BCE /* ReviewRequestViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -512,6 +519,7 @@
 				8F5517AF1CA6E0AC00492953 /* APIManager.swift in Sources */,
 				8F5517791CA66F7200492953 /* ViewController.swift in Sources */,
 				8F9F61931CB8CCF100C96076 /* FavoriteManager.swift in Sources */,
+				8FE4EA581CBBFD4C00F62BCE /* DialogViewController.swift in Sources */,
 				8FD73C241CB0FD6A0066DD5C /* Config.swift in Sources */,
 				8FE4EA561CBBF5E700F62BCE /* BannerView.swift in Sources */,
 				DB70BADF1CACD6250045E08A /* VideoListViewController.swift in Sources */,
@@ -521,6 +529,7 @@
 				8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */,
 				DB70BAB81CAB73190045E08A /* AnimalMovie.swift in Sources */,
 				8F5517771CA66F7200492953 /* AppDelegate.swift in Sources */,
+				8FE4EA5A1CBBFE8400F62BCE /* ReviewRequestViewController.swift in Sources */,
 				8F5517FE1CAF69AA00492953 /* SettingViewController.swift in Sources */,
 				8F5518021CB0DAD900492953 /* Constants.swift in Sources */,
 			);
@@ -569,6 +578,7 @@
 				8F73AC9C1CBA2E5B0051D107 /* fr */,
 				8F73AC9E1CBA2E610051D107 /* de */,
 				8F73ACA01CBA2E680051D107 /* it */,
+				8F93F5631CBC20DA00F3E11E /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
