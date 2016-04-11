@@ -24,6 +24,7 @@
 		8F73AC931CB9F1780051D107 /* CardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73AC921CB9F1780051D107 /* CardCollectionCell.swift */; };
 		8F73ACA41CBA2EDD0051D107 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F73ACA61CBA2EDD0051D107 /* Localizable.strings */; };
 		8F73ACB01CBA43F80051D107 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */; };
+		8F73ACB71CBBE50D0051D107 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8F73ACB61CBBE50D0051D107 /* Settings.bundle */; };
 		8F9F61891CB7FC8800C96076 /* SwiftRefresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */; };
 		8F9F618D1CB80B8500C96076 /* LicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */; };
 		8F9F618F1CB8CCC400C96076 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F618E1CB8CCC400C96076 /* Realm.framework */; };
@@ -103,6 +104,7 @@
 		8F73ACAD1CBA3B640051D107 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F73ACAE1CBA3C430051D107 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F73ACAF1CBA43F80051D107 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = ViewController/VideoViewController.swift; sourceTree = "<group>"; };
+		8F73ACB61CBBE50D0051D107 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8F9F61881CB7FC8800C96076 /* SwiftRefresher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRefresher.framework; path = Carthage/Build/iOS/SwiftRefresher.framework; sourceTree = "<group>"; };
 		8F9F618C1CB80B8500C96076 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenceViewController.swift; path = ViewController/LicenceViewController.swift; sourceTree = "<group>"; };
 		8F9F618E1CB8CCC400C96076 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				8F5518011CB0DAD900492953 /* Constants.swift */,
 				8FD73C231CB0FD6A0066DD5C /* Config.swift */,
 				8F73ACA61CBA2EDD0051D107 /* Localizable.strings */,
+				8F73ACB61CBBE50D0051D107 /* Settings.bundle */,
 			);
 			path = ZooZooZoo;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			files = (
 				8F5517811CA66F7200492953 /* LaunchScreen.storyboard in Resources */,
 				8F73ACA41CBA2EDD0051D107 /* Localizable.strings in Resources */,
+				8F73ACB71CBBE50D0051D107 /* Settings.bundle in Resources */,
 				8F55177E1CA66F7200492953 /* Assets.xcassets in Resources */,
 				8F55177C1CA66F7200492953 /* Main.storyboard in Resources */,
 			);
