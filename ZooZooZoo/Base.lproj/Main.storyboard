@@ -104,17 +104,27 @@
                                                                 <action selector="didPushFavoriteButton:" destination="eMw-CR-Y7b" eventType="touchUpInside" id="tdy-4C-LQF"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-SV-cfc">
+                                                            <rect key="frame" x="340" y="0.0" width="40" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.95578835227272729" green="0.95578835227272729" blue="0.95578835227272729" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="kbG-SV-cfc" firstAttribute="top" secondItem="lxP-hv-VWP" secondAttribute="top" id="5Pj-ZL-ScW"/>
                                                         <constraint firstAttribute="trailing" secondItem="hwE-yi-mZU" secondAttribute="trailing" id="DoJ-U4-qzn"/>
                                                         <constraint firstItem="j0o-9f-p5X" firstAttribute="leading" secondItem="lxP-hv-VWP" secondAttribute="leading" constant="8" id="FNS-bB-plS"/>
                                                         <constraint firstItem="hwE-yi-mZU" firstAttribute="centerY" secondItem="lxP-hv-VWP" secondAttribute="centerY" constant="10" id="OBe-9h-jLZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="hwE-yi-mZU" secondAttribute="trailing" id="PqY-Ar-6AA"/>
                                                         <constraint firstAttribute="height" constant="60" id="RAN-AR-kMh"/>
+                                                        <constraint firstItem="kbG-SV-cfc" firstAttribute="leading" secondItem="j0o-9f-p5X" secondAttribute="trailing" id="Reh-yn-Huv"/>
                                                         <constraint firstAttribute="bottom" secondItem="hwE-yi-mZU" secondAttribute="bottom" id="TjW-hn-3zF"/>
                                                         <constraint firstItem="hwE-yi-mZU" firstAttribute="leading" secondItem="j0o-9f-p5X" secondAttribute="trailing" id="aaf-BJ-9Gf"/>
+                                                        <constraint firstItem="hwE-yi-mZU" firstAttribute="top" secondItem="kbG-SV-cfc" secondAttribute="bottom" constant="-10" id="dUq-PU-UMX"/>
                                                         <constraint firstItem="hwE-yi-mZU" firstAttribute="top" secondItem="lxP-hv-VWP" secondAttribute="top" id="e0H-Xa-kKV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kbG-SV-cfc" secondAttribute="trailing" id="gDj-HW-nSw"/>
                                                         <constraint firstAttribute="bottom" secondItem="j0o-9f-p5X" secondAttribute="bottom" id="lyN-t2-GIp"/>
                                                         <constraint firstAttribute="bottom" secondItem="hwE-yi-mZU" secondAttribute="bottom" constant="8" id="rHV-Ph-FOo"/>
                                                         <constraint firstItem="j0o-9f-p5X" firstAttribute="top" secondItem="lxP-hv-VWP" secondAttribute="top" id="stj-CQ-GW3"/>
@@ -189,6 +199,7 @@
                                         <connections>
                                             <outlet property="favoriteButton" destination="hwE-yi-mZU" id="3vP-dJ-2As"/>
                                             <outlet property="imageView" destination="2gd-2x-I6A" id="dmL-vM-r9z"/>
+                                            <outlet property="likeLabel" destination="kbG-SV-cfc" id="mFs-aQ-24Z"/>
                                             <outlet property="titleLabel" destination="j0o-9f-p5X" id="Bzh-7H-2P7"/>
                                         </connections>
                                     </collectionViewCell>

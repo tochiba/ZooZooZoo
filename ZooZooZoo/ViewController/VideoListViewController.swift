@@ -252,7 +252,7 @@ extension VideoListViewController: UICollectionViewDataSource {
                 cell.imageView.sd_setImageWithURL(url)
             }
             cell.titleLabel.text = video.title
-            
+            cell.likeLabel.text = String(video.likeCount)
             cell.setup(video, delegate: self)
             
             return cell
