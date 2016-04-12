@@ -27,3 +27,10 @@
 "ferret"   = "Frettchen";
 "parakeet" = "Sittich";
 "penguin"  = "Pinguin";
+
+"review_detail"     = "Sind Sie sicher, dass Sie erhalten , um die Meinungen und Wünsche wollen?";
+"review_no1"        = "Nein";
+"review_yes1"       = "ja";
+"review_no2"        = "Nein";
+"review_yes2"       = "Jubeln";
+"review_request"    = "⭐️⭐️⭐️⭐️⭐️ Werden Sie bei der Überprüfung jubeln?";

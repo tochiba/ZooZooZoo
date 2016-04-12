@@ -28,3 +28,10 @@
 "ferret"    = "雪貂";
 "parakeet"  = "鸚鵡";
 "penguin"   = "企鵝";
+
+"review_detail"     = "你確定你想收到的意見和要求？";
+"review_no1"        = "沒有";
+"review_yes1"       = "是";
+"review_no2"        = "沒有";
+"review_yes2"       = "歡呼";
+"review_request"    = "⭐️⭐️⭐️⭐️⭐️你會在檢討歡呼？";
