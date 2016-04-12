@@ -27,3 +27,10 @@
 "ferret"    = "フェレット";
 "parakeet"  = "インコ";
 "penguin"   = "ペンギン";
+
+"review_detail"     = "ご意見・ご要望をいただいてもよろしいでしょうか？";
+"review_no1"        = "いいえ";
+"review_yes1"       = "はい";
+"review_no2"        = "まだまだ";
+"review_yes2"       = "応援する";
+"review_request"    = "⭐️⭐️⭐️⭐️⭐️レビューで応援してくれませんか？";

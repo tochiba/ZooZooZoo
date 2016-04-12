@@ -27,3 +27,10 @@
 "ferret"    = "Ferret";
 "parakeet"  = "Parakeet";
 "penguin"   = "Penguin";
+
+"review_detail"     = "Are you sure you want to received the opinions and requests?";
+"review_no1"        = "No";
+"review_yes1"       = "Yes";
+"review_no2"        = "No";
+"review_yes2"       = "Cheer";
+"review_request"    = "⭐️⭐️⭐️⭐️⭐️ Will you cheer in the review?";
