@@ -83,7 +83,7 @@ class VideoListViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationDidChange:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.deviceOrientationDidChange(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
         setData()
         
         if ReviewChecker.playCheck(self) {
@@ -237,7 +237,7 @@ extension VideoListViewController {
     
     private func playVideo(id: String) {
         let vc = VideoViewController(videoIdentifier: id)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "moviePlayerPlaybackDidFinish:", name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.moviePlayerPlaybackDidFinish(_:)), name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
         self.presentViewController(vc, animated: true, completion: nil)
 //        self.presentMoviePlayerViewControllerAnimated(vc)
     }
