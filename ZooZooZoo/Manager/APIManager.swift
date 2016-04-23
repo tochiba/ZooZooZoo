@@ -74,7 +74,8 @@ class APIManager {
         }
     }
     
-    func nextSearch(query: String, nextToken: String, var aArray: [AnimalVideo]) {
+    func nextSearch(query: String, nextToken: String, aArray: [AnimalVideo]) {
+        var aArray = aArray
         Alamofire.request(.GET, APIURL.YoutubeNextSearch + query + APIPARAM.Token + APITOKEN.YoutubeToken + APIPARAM.NextPageToken + nextToken)
             .responseJSON { response in
                 guard let object = response.result.value else {
