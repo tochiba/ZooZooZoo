@@ -79,12 +79,12 @@ class VideoListViewController: UIViewController {
        
     override func viewDidLayoutSubviews() {
         setupCellSize()
+        setData()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.deviceOrientationDidChange(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
-        setData()
         
         if ReviewChecker.playCheck(self) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
