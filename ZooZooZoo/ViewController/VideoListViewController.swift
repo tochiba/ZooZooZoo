@@ -94,6 +94,13 @@ class VideoListViewController: UIViewController {
                 self.presentViewController(nVC, animated: true, completion: nil)
             }
         }
+        
+        // 3D Touchが使える端末か確認
+        if UIApplication.sharedApplication().keyWindow?.traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
+            // どのビューをPeek and Popの対象にするか指定
+            self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
+
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -280,6 +287,48 @@ extension VideoListViewController: UICollectionViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
+}
+
+extension VideoListViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        // 3D Touchの対象がUITableViewかどうかを判別（UITableViewでの位置を取得）
+        guard let cellPosition: CGPoint = self.collectionView.convertPoint(location, fromView: view) else {
+            return nil
+        }
+        
+        // 3D Touchされた場所が存在するかどうか判定
+        // Peekを表示させたくない、表示すべきではない場合は"nil"を返す
+        guard let indexPath: NSIndexPath = self.collectionView.indexPathForItemAtPoint(cellPosition) else {
+            return nil
+        }
+        
+        // Peekで表示させる画面のインスタンス生成
+        guard let cell = self.collectionView.cellForItemAtIndexPath(indexPath) as? CardCollectionCell else {
+            return nil
+        }
+        
+        let vc = VideoViewController(videoIdentifier: cell.video?.id)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.moviePlayerPlaybackDidFinish(_:)), name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
+        
+        // Peekで表示させるプレビュー画面の大きさを指定
+        // 基本的にwidthの数値は無視される
+        vc.preferredContentSize = CGSize(width: 0.0, height: UIScreen.mainScreen().bounds.size.height * 0.7)
+        
+        // 3D Touchではっきりと表示させる部分を指定（どの部分をぼかして、どの部分をPeekしているかを設定）
+        previewingContext.sourceRect = view.convertRect(cell.frame, fromView: self.collectionView)
+        
+        // 次の画面のインスタンスを返す
+        return vc
+    }
+    
+    // Popする直前に呼ばれる処理（通常は次の画面を表示させる）
+    // UINavigationControllerでのpushでの遷移は"showViewController:sender:"をコールする
+    // Modalでの遷移の場合は"presentViewController:animated:completion:"をコールする
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        presentViewController(viewControllerToCommit, animated: true, completion: nil)
+        //showViewController(viewControllerToCommit, sender: self)
     }
 }
 
