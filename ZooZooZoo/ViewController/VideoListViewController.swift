@@ -246,7 +246,6 @@ extension VideoListViewController {
         let vc = VideoViewController(videoIdentifier: id)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.moviePlayerPlaybackDidFinish(_:)), name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
         self.presentViewController(vc, animated: true, completion: nil)
-//        self.presentMoviePlayerViewControllerAnimated(vc)
     }
     
     func moviePlayerPlaybackDidFinish(notification: NSNotification) {
@@ -310,8 +309,6 @@ extension VideoListViewController: UIViewControllerPreviewingDelegate {
         }
         
         let vc = VideoViewController(videoIdentifier: cell.video?.id)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoListViewController.moviePlayerPlaybackDidFinish(_:)), name: MPMoviePlayerPlaybackDidFinishNotification, object: vc.moviePlayer)
-        
         // Peekで表示させるプレビュー画面の大きさを指定
         // 基本的にwidthの数値は無視される
         vc.preferredContentSize = CGSize(width: 0.0, height: UIScreen.mainScreen().bounds.size.height * 0.7)

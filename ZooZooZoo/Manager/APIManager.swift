@@ -29,7 +29,6 @@ class APIManager {
             return []
         }
         
-        // TODO: 配信済みを除く
         return array
     }
     
