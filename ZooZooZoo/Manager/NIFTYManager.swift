@@ -24,7 +24,6 @@ class NIFTYManager {
         v.title = video.title
         v.date = video.date
         v.animalName = video.animalName
-        
         v.saveInBackgroundWithBlock({ error in
             if error != nil {
                 // Error

@@ -18,7 +18,6 @@ class ActivityManager: NSObject {
         let shareWebsite = NSURL(string: "\(URL.YoutubeShare)\(video.id)")!
         let activityItems = [shareText, shareWebsite]
         
-        // 初期化処理
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = vc?.view
         
@@ -30,12 +29,6 @@ class ActivityManager: NSObject {
         
         activityVC.excludedActivityTypes = excludedActivityTypes
         let completionHandler:UIActivityViewControllerCompletionWithItemsHandler = { (str, isFinish, arr, error) in
-            if isFinish {
-                //vc?.showToast("投稿が完了しました", title: "シェア")
-            }
-            else {
-                //NADInterstitial.sharedInstance().showAd()
-            }
         }
         activityVC.completionWithItemsHandler = completionHandler
         return activityVC
