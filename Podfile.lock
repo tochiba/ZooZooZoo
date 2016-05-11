@@ -24,6 +24,9 @@ PODS:
     - Fabric (~> 1.6.3)
   - Fabric (1.6.7)
   - Google-Mobile-Ads-SDK (7.7.1)
+  - GoogleAnalytics-iOS-SDK (3.12):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.12)
+  - GoogleAnalytics-iOS-SDK/Core (3.12)
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
@@ -32,13 +35,16 @@ PODS:
     - JSQMessagesViewController (= 7.2.0)
     - JSQSystemSoundPlayer (= 2.0.1)
   - NCMB (2.3.0)
+  - NendSDK_iOS (3.1.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Google-Mobile-Ads-SDK
+  - GoogleAnalytics-iOS-SDK
   - Meyasubaco
   - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
+  - NendSDK_iOS
 
 EXTERNAL SOURCES:
   NCMB:
@@ -54,9 +60,11 @@ SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   Google-Mobile-Ads-SDK: e27569901b58881d9a94b42f2c642739cfe3970a
+  GoogleAnalytics-iOS-SDK: 13241762fa4aea845eb75bef6c0da3427a26e7b3
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Meyasubaco: a084baa6c10270a51ef7bd74d1e6cc40d427fb74
   NCMB: a153b3f99d7b3d530eba60dba065487c63962e2d
+  NendSDK_iOS: 49801a87f1ce01b782d99cb639a994dfbfe83017
 
 COCOAPODS: 0.39.0
