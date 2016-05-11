@@ -31,6 +31,10 @@ class VideoViewController: XCDYouTubeVideoPlayerViewController, UIViewController
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.sendScreenNameLog()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .Custom
