@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UzY-be-V2f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UzY-be-V2f">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -290,12 +289,17 @@
                                     <outlet property="delegate" destination="GOT-gd-YO9" id="75R-rz-Fd3"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOa-ox-INh" customClass="BannerView" customModule="ZooZooZoo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOa-ox-INh" customClass="NADView">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cYM-45-kfB"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isAdjustAdSize" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nendSpotID" value="577561"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="nendApiKey" value="44ade1a0efda6d1a51fbd8f4538417c7aad8b68e"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -316,7 +320,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="bannerView" destination="tOa-ox-INh" id="HUs-WX-gpd"/>
                         <outlet property="tableView" destination="PLt-bt-xQN" id="Is0-4r-SAr"/>
                         <segue destination="sUm-gI-PUi" kind="show" identifier="SettingToLicence" id="ni7-fM-2eT"/>
                     </connections>

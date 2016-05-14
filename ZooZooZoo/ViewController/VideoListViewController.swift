@@ -67,6 +67,7 @@ class VideoListViewController: UIViewController {
             self?.loadData()
             self?.collectionView.reloadData()
             self?.collectionView.srf_endRefreshing()
+            TrackingManager.sharedInstance.sendEventAction(.Refresh)
         }
         self.collectionView.srf_addRefresher(refresher)
         
@@ -75,6 +76,8 @@ class VideoListViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         setupColloectionView()
+        self.sendScreenNameLog()
+        TrackingManager.sharedInstance.sendEventCategory(self.queryString)
     }
        
     override func viewDidLayoutSubviews() {
@@ -366,6 +369,7 @@ extension VideoListViewController: CardCollectionCellDelegate {
                 self.presentViewController(nVC, animated: true, completion: nil)
             }
         }
+        TrackingManager.sharedInstance.sendEventAction(.Favorite)
     }
     
     func didPushSetting(video: AnimalVideo, frame: CGRect) {
@@ -408,6 +412,7 @@ extension VideoListViewController: CardCollectionCellDelegate {
     func didPushPlay(video: AnimalVideo) {
         playVideo(video.id)
         PlayCounter.add()
+        TrackingManager.sharedInstance.sendEventAction(.Play)
     }
 }
 

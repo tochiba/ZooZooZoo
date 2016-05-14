@@ -36,6 +36,8 @@ class ActivityManager: NSObject {
     
     class func showActivityView(viewController: UIViewController, video: AnimalVideo) {
         weak var vc = viewController
-        vc?.presentViewController(getActivityViewController(vc, video: video), animated: true, completion: nil)
+        vc?.presentViewController(getActivityViewController(vc, video: video), animated: true, completion: {
+            TrackingManager.sharedInstance.sendEventAction(.Share)
+        })
     }
 }
